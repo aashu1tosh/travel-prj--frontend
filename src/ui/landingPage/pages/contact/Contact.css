@@ -1,0 +1,75 @@
+.contact-company-info {
+    padding: 50px 0px;
+}
+
+.contact-company-info h2 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.contact-company-info .contact-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contact-company-info .contact-main {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0px;
+    align-items: center;
+}
+
+.contact-company-info .contact-main .left,
+.contact-company-info .contact-main .right {
+    flex: 1;
+}
+
+.contact-company-info .contact-main .right .form-container {
+    width: 600px;
+    height: 436px;
+    background-color: var(--site-light-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-company-info .contact-main h2 {
+    text-align: start;
+    margin-bottom: 24px;
+    font-size: 26px;
+}
+
+.contact-company-info .contact-main h4 {
+    color: var(--site-color);
+    margin-bottom: 16px;
+    font-size: 18px;
+    text-align: none !important;
+}
+
+.contact-company-info .contact-main .message-box {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid var(--site-color);
+    margin: 10px 0px;
+    height: 100px;
+    padding: 10px 5px;
+}
+
+.contact-company-info .contact-main #agreement {
+    margin: 18px 0px;
+    padding-left: 10px;
+}
+
+@media (max-width: 1000px) {
+    .contact-company-info .contact-main {
+        flex-direction: column;
+    }
+}

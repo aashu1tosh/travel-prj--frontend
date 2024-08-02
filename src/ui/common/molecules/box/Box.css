@@ -1,0 +1,24 @@
+.box {
+    width: 300px;
+    height: 260px;
+    background-color: var(--site-light-color);
+    margin: 10px 25px;
+    border-radius: 6px;
+    padding: 40px 16px;
+}
+
+.box .img-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.box h2 {
+    margin-bottom: 16px !important;
+    text-align: center;
+}
+
+.box p {
+    text-align: center;
+}

@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: rgba(255, 255, 255, 0.87);
+    --secondary-color: #242424;
+    --site-color: #62a944;
+    --site-light-color: rgba(98, 169, 68, 0.16);
+    --secondary-site-color: #ffa742;
+    color-scheme: dark light;
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+}
+
+a {
+    background-color: inherit;
+    color: inherit;
+}

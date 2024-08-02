@@ -1,0 +1,24 @@
+.team-members {
+    padding: 40px;
+}
+
+.team-members h2,
+.team-members h4 {
+    text-align: center;
+    width: 100%;
+}
+
+.team-members h2 {
+    margin-bottom: 1.5rem;
+}
+
+.team-members h4 {
+    color: var(--site-color);
+    margin-bottom: 1rem;
+}
+
+.team {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}

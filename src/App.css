@@ -1,0 +1,48 @@
+.container {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.icons {
+    display: inline-block;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.icons:hover svg {
+    color: orange;
+    /* Change color on hover */
+}
+
+.red-text {
+    color: red;
+    margin: 12px 0px !important;
+}
+
+.site-color {
+    color: var(--site-color);
+}
+
+.block {
+    display: block;
+}
+
+.flex-space-between {
+    display: flex;
+    justify-content: space-between !important;
+}
+
+.flex {
+    display: flex;
+}
+
+.underline-site-color {
+    border-bottom: 2px solid var(--site-color);
+}
+
+@media (max-width: 1200px) {
+    .container {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}

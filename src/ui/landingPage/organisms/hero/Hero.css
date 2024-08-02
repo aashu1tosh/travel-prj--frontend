@@ -1,0 +1,33 @@
+.hero {
+    width: 100vw;
+    margin-top: 85px;
+    position: relative;
+}
+
+.hero-img img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+}
+
+.hero .hero-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
+}
+
+.hero .hero-text h3 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.hero .hero-text p {
+    font-size: 20px;
+}

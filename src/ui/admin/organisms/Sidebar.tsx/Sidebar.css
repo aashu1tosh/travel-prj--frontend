@@ -1,0 +1,67 @@
+#unique-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 200px;
+    background-color: #333;
+    overflow-x: hidden;
+    transition: 0.3s;
+    transform: translateX(-100%);
+    z-index: 0;
+    /* Ensure sidebar is on top */
+    margin-top: 55px;
+}
+
+#unique-sidebar.open {
+    transform: translateX(0);
+}
+
+#unique-sidebar .sidebar-content {
+    padding: 20px;
+}
+
+#unique-sidebar .sidebar-content li {
+    display: block;
+    color: white;
+    padding: 10px 0;
+    text-decoration: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#unique-sidebar .sidebar-content li:hover {
+    color: var(--site-color);
+    border-left: 5px solid var(--site-color);
+    padding-left: 7px;
+    transition: 0.25s ease-in;
+}
+
+.toggle-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1100;
+    /* Ensure button is on top of sidebar */
+}
+
+.toggle-button:hover {
+    background-color: #575757;
+}
+
+/* Add padding to main content when sidebar is open to avoid overlap */
+.main-content {
+    padding-left: 20px;
+    transition: padding-left 0.3s;
+}
+
+.main-content.sidebar-open {
+    padding-left: 220px;
+    /* Width of sidebar + 20px */
+}
