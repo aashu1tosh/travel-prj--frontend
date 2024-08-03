@@ -17,16 +17,23 @@ interface IResponse<T> {
 }
 
 const useAPI = <T>() => {
-    const get = async ({ url, toastShow = false }: { url: string, toastShow?: boolean }): Promise<IResponse<T>> => {
+    const get = async ({
+        url,
+        toastShow = false,
+    }: {
+        url: string;
+        toastShow?: boolean;
+    }): Promise<IResponse<T>> => {
         try {
             const response = await axios.get(url);
             {
-                toastShow && toast.show({
-                    title: 'Operation Successful',
-                    content: response?.data?.message as string,
-                    duration: 5000,
-                    type: 'success'
-                });
+                toastShow &&
+                    toast.show({
+                        title: 'Operation Successful',
+                        content: response?.data?.message as string,
+                        duration: 5000,
+                        type: 'success',
+                    });
             }
             return {
                 status: true,
@@ -36,12 +43,13 @@ const useAPI = <T>() => {
         } catch (err: unknown) {
             const error = err as IAxiosError;
             {
-                toastShow && toast.show({
-                    title: 'Operation Successful',
-                    content: error?.response?.data?.message as string,
-                    duration: 5000,
-                    type: 'error'
-                });
+                toastShow &&
+                    toast.show({
+                        title: 'Operation Successful',
+                        content: error?.response?.data?.message as string,
+                        duration: 5000,
+                        type: 'error',
+                    });
             }
             return {
                 status: false,
@@ -58,18 +66,19 @@ const useAPI = <T>() => {
     }: {
         url: string;
         toastShow?: boolean;
-        data: T;
+        data: Partial<T>;
     }): Promise<IResponse<T>> => {
         try {
             const response = await axios.post(url, data);
 
             {
-                toastShow && toast.show({
-                    title: 'Operation Successful',
-                    content: response?.data?.message as string,
-                    duration: 5000,
-                    type: 'success'
-                });
+                toastShow &&
+                    toast.show({
+                        title: 'Operation Successful',
+                        content: response?.data?.message as string,
+                        duration: 5000,
+                        type: 'success',
+                    });
             }
 
             return {
@@ -79,15 +88,16 @@ const useAPI = <T>() => {
             };
         } catch (err: unknown) {
             const error = err as IAxiosError;
-            console.log("🚀 ~ useAPI ~ error:", error)
+            console.log('🚀 ~ useAPI ~ error:', error);
 
             {
-                toastShow && toast.show({
-                    title: 'Operation Failed',
-                    content: error?.response?.data?.message as string,
-                    duration: 5000,
-                    type: 'error'
-                });
+                toastShow &&
+                    toast.show({
+                        title: 'Operation Failed',
+                        content: error?.response?.data?.message as string,
+                        duration: 5000,
+                        type: 'error',
+                    });
             }
             return {
                 status: false,

@@ -8,6 +8,8 @@ import AdminProtectedRoute from 'AdminProtectedRoute';
 import ErrorBoundary from 'Error.Boundary';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './App.css';
+import ErrorPage from './ErrorPage';
+import UserList from '@ui/admin/pages/usersList/UserList';
 
 function App() {
     const router = createBrowserRouter([
@@ -47,7 +49,7 @@ function App() {
                 {
                     path: 'contact',
                     element: <Contact />,
-                }
+                },
             ],
         },
         {
@@ -55,15 +57,23 @@ function App() {
             element: <AdminProtectedRoute />,
             children: [
                 {
-                    path: 'dashboard',
+                    path: '',
                     element: <Dashboard />,
                     index: true,
                 },
-            ]
+                {
+                    path: 'user-list',
+                    element: <UserList />,
+                },
+                {
+                    path: '*',
+                    element: <ErrorPage />,
+                },
+            ],
         },
         {
             path: '*',
-            element: <>Not Found</>,
+            element: <ErrorPage />,
         },
     ]);
 
@@ -74,7 +84,6 @@ function App() {
                     <RouterProvider router={router} />
                 </ErrorBoundary>
             </OfficeSetupProvider>
-
         </>
     );
 }

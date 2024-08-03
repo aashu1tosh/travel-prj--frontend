@@ -48,14 +48,17 @@
       "@functions/*": [
         "functions/*"
       ],
-      "@type/*": [
-        "type/*"
+      "@hooks/*": [
+        "hooks/*"
+      ],
+      "@interface/*": [
+        "interface/*"
       ],
       "@services/*": [
         "services/*"
       ],
-      "@interface/*": [
-        "interface/*"
+      "@type/*": [
+        "type/*"
       ],
       "@ui/*": [
         "ui/*"

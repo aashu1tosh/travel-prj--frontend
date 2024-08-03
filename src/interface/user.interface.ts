@@ -18,22 +18,38 @@
 //         "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM0NDBmMmFjLTY0YjItNGMxOS1mMDFmLTAyZjM5YzliZDE0NyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTcyMjU3NzE0MCwiZXhwIjoxNzIyOTIyNzQwfQ.2H243exJRys9DZNHX4PrUoAEWLVibzG8roZYK7Ugl8g"
 //     }
 
-import { ROLE } from "@constant/enum";
-import { IBase } from "./base.interface";
+import { ROLE } from '@constant/enum';
+import { IBase } from './base.interface';
 
 export interface IUserDetails extends IBase {
-    firstName: string,
-    middleName: string,
-    lastName: string,
-    phoneNumber: string
+    firstName: string;
+    middleName: string;
+    lastName: string;
+    phoneNumber: string;
 }
 
 export interface IUser extends IBase {
-    email: string,
-    role: ROLE
-    details: IUserDetails,
+    email: string;
+    role: ROLE;
+    details: IUserDetails;
     tokens: {
-        accessToken: string,
-        refreshToken: string
-    }
+        accessToken: string;
+        refreshToken: string;
+    };
+}
+
+export interface IFetchUser extends IBase {
+    email: string;
+    role: ROLE;
+    otpVerified: boolean;
+}
+
+export interface IFetchUserResponse {
+    data: IFetchUser[];
+    pagination: {
+        total: number;
+        totalPages: number;
+        currentPage: number;
+        perpage: number;
+    };
 }
