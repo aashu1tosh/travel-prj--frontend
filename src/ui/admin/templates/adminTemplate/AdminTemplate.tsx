@@ -1,5 +1,5 @@
-import Navbar from '@ui/admin/organisms/Navbar/Navbar';
-import Sidebar from '@ui/admin/organisms/Sidebar.tsx/Sidebar';
+import Navbar from '@ui/admin/organisms/navbar/Navbar';
+import Sidebar from '@ui/admin/organisms/sidebar/Sidebar';
 import { Outlet } from 'react-router-dom';
 import './AdminTemplate.css';
 

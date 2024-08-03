@@ -15,6 +15,10 @@
     height: 100%;
 }
 
+input:read-only {
+    cursor: not-allowed;
+}
+
 .input-wrapper .icon {
     cursor: pointer;
     position: absolute;
@@ -24,4 +28,7 @@
 
 .input-error {
     border-bottom: 2px solid red !important;
+}
+
+.read-only {
 }

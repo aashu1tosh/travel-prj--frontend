@@ -14,7 +14,10 @@ const Navbar: React.FC = () => {
             </div>
             <Link to='/'>
                 <div className='navbar-logo'>
-                    <img src={officeSetup?.logoUrl || image?.logo} alt='Logo' />
+                    <img
+                        src={officeSetup?.company?.media?.path || image?.loader}
+                        alt='Logo'
+                    />
                 </div>
             </Link>
 

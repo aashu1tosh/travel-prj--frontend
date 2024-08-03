@@ -13,7 +13,6 @@ const Testimonials = () => {
     const fetchData = async () => {
         const response = await get({ url: '/testimonial' });
         if (response.status) setTestimonial(response.data);
-        console.log(response.data, 'fetch testimonial');
     };
 
     const renderStars = (rating: number | null) => {

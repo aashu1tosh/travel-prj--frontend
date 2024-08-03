@@ -34,8 +34,12 @@ const Footer = () => {
     return (
         <footer className='container footer'>
             <div id='footer-1'>
-                <img src={officeSetup?.logoUrl} alt='' className='logo' />
-                <p id='description'>{officeSetup?.description}</p>
+                <img
+                    src={officeSetup?.company?.media?.path}
+                    alt=''
+                    className='logo'
+                />
+                <p id='description'>{officeSetup?.company?.description}</p>
             </div>
             <div id='footer-2'>
                 <h3>POPULAR DESTINATION</h3>
@@ -47,20 +51,24 @@ const Footer = () => {
                     <li>
                         <div className='list'>
                             <div className='icons'>{<FaMapMarkerAlt />}</div>
-                            <div>{officeSetup?.location}</div>
+                            <div>
+                                {officeSetup?.contactInformation?.location}
+                            </div>
                         </div>
                     </li>
                     <li>
                         <div className='list'>
                             <div className='icons'>{<FaPhoneAlt />}</div>
-                            <div>{officeSetup?.phoneNumber}</div>
+                            <div>
+                                {officeSetup?.contactInformation?.phoneNumber}
+                            </div>
                         </div>
                     </li>
 
                     <li>
                         <div className='list'>
                             <div className='icons'>{<MdEmail />}</div>
-                            <div>{officeSetup?.email}</div>
+                            <div>{officeSetup?.contactInformation?.email}</div>
                         </div>
                     </li>
                 </ul>
@@ -97,17 +105,26 @@ const Footer = () => {
                 </p>
 
                 <div className='social'>
-                    <a href={officeSetup?.facebookLink} target='_black'>
+                    <a
+                        href={officeSetup?.contactInformation?.facebookLink}
+                        target='_black'
+                    >
                         <span>
                             <FacebookIcon />
                         </span>
                     </a>
-                    <a href={officeSetup?.instagramLink} target='_black'>
+                    <a
+                        href={officeSetup?.contactInformation?.instagramLink}
+                        target='_black'
+                    >
                         <span>
                             <InstagramIcon />
                         </span>
                     </a>
-                    <a href={officeSetup?.twitterLink} target='_black'>
+                    <a
+                        href={officeSetup?.contactInformation?.twitterLink}
+                        target='_black'
+                    >
                         <span>
                             <TwitterIcon />
                         </span>

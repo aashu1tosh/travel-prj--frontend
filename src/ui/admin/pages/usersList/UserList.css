@@ -5,6 +5,8 @@
     table-layout: auto;
     text-align: center;
     font-size: 0.875rem;
+    min-width: 1000px;
+    overflow-x: scroll;
     /* text-sm equivalent */
 }
 
@@ -33,7 +35,6 @@
 }
 
 .table .view-icon {
-    
 }
 
 .table .delete-icon {

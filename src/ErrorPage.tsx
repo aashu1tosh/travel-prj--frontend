@@ -1,3 +1,4 @@
+import GoBackButton from '@ui/common/atoms/goBackButton/GoBackButton';
 import 'ErrorPage.css';
 
 const ErrorPage = () => {
@@ -8,9 +9,7 @@ const ErrorPage = () => {
             <p className='error-description'>
                 The page you're looking for doesn't exist.
             </p>
-            <a href='/' className='error-link'>
-                Go Back to Home
-            </a>
+            <GoBackButton />
         </div>
     );
 };

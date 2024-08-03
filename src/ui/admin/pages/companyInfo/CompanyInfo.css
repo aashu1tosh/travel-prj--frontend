@@ -1,0 +1,27 @@
+.company-info .company-info-form .main-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.company-info .company-info-form form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.company-info .company-info-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.company-info .label-input-wrapper {
+    width: 420px;
+    margin: 10px 20px;
+}
+
+.company-info .button-wrapper {
+    width: 150px;
+}

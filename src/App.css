@@ -40,6 +40,18 @@
     border-bottom: 2px solid var(--site-color);
 }
 
+.custom-h {
+    max-width: max-content;
+    border-bottom: 2px solid var(--admin-primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @media (max-width: 1200px) {
     .container {
         padding-left: 5%;

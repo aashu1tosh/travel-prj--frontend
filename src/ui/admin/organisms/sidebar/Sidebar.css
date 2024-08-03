@@ -4,7 +4,8 @@
     top: 0;
     height: 100%;
     width: 200px;
-    background-color: #e5a0ab;
+    background-color: var(--admin-accent-color);
+    color: #333;
     overflow-x: hidden;
     transition: 0.3s;
     transform: translateX(-100%);
@@ -23,7 +24,7 @@
 
 #unique-sidebar .sidebar-content li {
     display: block;
-    color: white;
+    color: #333;
     padding: 10px 0;
     text-decoration: none;
     font-size: 18px;
@@ -49,19 +50,4 @@
     cursor: pointer;
     z-index: 1100;
     /* Ensure button is on top of sidebar */
-}
-
-.toggle-button:hover {
-    background-color: #575757;
-}
-
-/* Add padding to main content when sidebar is open to avoid overlap */
-.main-content {
-    padding-left: 20px;
-    transition: padding-left 0.3s;
-}
-
-.main-content.sidebar-open {
-    padding-left: 220px;
-    /* Width of sidebar + 20px */
 }

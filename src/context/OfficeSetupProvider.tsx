@@ -1,24 +1,12 @@
+import { MediaType } from '@constant/enum';
 import { ICompany, ICompanyInfo } from '@interface/company.interface';
 import { ReactChildren } from '@interface/global.interface';
 import useAPI from 'hooks/useAPI';
 import React, { createContext, useEffect, useState } from 'react';
-// import { LanguageEnum } from '@type/global.types';
 
-interface officeSetupData {
-    description: string;
-    slogan: string;
-    logoUrl: string;
-    location: string;
-    lat: string;
-    long: string;
-    email: string;
-    availableDays: string;
-    availableTime: string;
-    phoneNumber: string;
-    secondaryPhoneNumber: string;
-    facebookLink: string;
-    instagramLink: string;
-    twitterLink: string;
+export interface officeSetupData {
+    company: ICompany;
+    contactInformation: ICompanyInfo;
 }
 
 export interface OfficeSetupContextType {
@@ -43,27 +31,37 @@ export const OfficeSetupProvider: React.FC<ReactChildren> = ({ children }) => {
 
     const fetchOfficeSetup = async () => {
         try {
-            let fullData: officeSetupData = {
-                description: '',
-                slogan: '',
-                logoUrl: '',
-                location: '',
-                lat: '',
-                long: '',
-                email: '',
-                availableDays: '',
-                availableTime: '',
-                phoneNumber: '',
-                secondaryPhoneNumber: '',
-                facebookLink: '',
-                instagramLink: '',
-                twitterLink: '',
+            const fullData: officeSetupData = {
+                company: {
+                    description: '',
+                    slogan: '',
+                    media: {
+                        name: '',
+                        mimeType: '',
+                        type: MediaType.PROFILE,
+                        path: '',
+                    },
+                },
+                contactInformation: {
+                    location: '',
+                    lat: '',
+                    long: '',
+                    email: '',
+                    availableDays: '',
+                    availableTime: '',
+                    phoneNumber: '',
+                    secondaryPhoneNumber: '',
+                    facebookLink: '',
+                    instagramLink: '',
+                    twitterLink: '',
+                },
             };
             const response = await get({ url: '/company' });
             if (response.status) {
                 const data = response.data as ICompany;
-                fullData = Object.assign(fullData, data);
-                fullData.logoUrl = data?.media?.path;
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                // const { media, ...companyData } = data;
+                fullData.company = Object.assign(fullData.company, data);
             }
 
             const companyInfoResponse = await get({
@@ -71,7 +69,10 @@ export const OfficeSetupProvider: React.FC<ReactChildren> = ({ children }) => {
             });
             if (companyInfoResponse.status) {
                 const data = companyInfoResponse.data as ICompanyInfo;
-                fullData = Object.assign(fullData, data);
+                fullData.contactInformation = Object.assign(
+                    fullData.contactInformation,
+                    data
+                );
             }
             setOfficeSetup(fullData);
         } catch (error) {

@@ -1,5 +1,5 @@
 import { useOfficeSetup } from 'hooks/useOfficeSetup';
-import { Suspense, lazy, useEffect, useState } from 'react';
+import { Suspense, lazy, useState } from 'react';
 import { FaRegUserCircle } from 'react-icons/fa';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
@@ -16,18 +16,10 @@ const Navbar = () => {
     const toggleMenu = () => {
         mobileMenu ? setMobileMenu(false) : setMobileMenu(true);
     };
-    const [sticky, setSticky] = useState(false);
-
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
-
-    useEffect(() => {
-        window.addEventListener('scroll', () => {
-            window.scrollY > 25 ? setSticky(true) : setSticky(false);
-        });
-    }, []);
 
     interface Route {
         path: string;
@@ -71,11 +63,11 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className={`container ${sticky ? 'dark-nav' : ''}`}>
+            <nav className={`container`}>
                 <a href='/'>
                     <img
                         alt=''
-                        src={`${officeSetup?.logoUrl}`}
+                        src={`${officeSetup?.company?.media?.path}`}
                         className='logo'
                     />
                 </a>

@@ -32,7 +32,7 @@ const InputField: React.FC<InputFieldProps> = ({
     return (
         <>
             <div
-                className={`input-wrapper ${error ? 'input-error' : ''}`}
+                className={`input-wrapper ${error ? 'input-error' : ''} ${readOnly ? 'read-only' : ''}`}
                 style={{ height: `${height}px` }}
             >
                 <input

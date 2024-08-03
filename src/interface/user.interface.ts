@@ -20,6 +20,7 @@
 
 import { ROLE } from '@constant/enum';
 import { IBase } from './base.interface';
+import { PaginationInterface } from './global.interface';
 
 export interface IUserDetails extends IBase {
     firstName: string;
@@ -46,10 +47,5 @@ export interface IFetchUser extends IBase {
 
 export interface IFetchUserResponse {
     data: IFetchUser[];
-    pagination: {
-        total: number;
-        totalPages: number;
-        currentPage: number;
-        perpage: number;
-    };
+    pagination: PaginationInterface;
 }

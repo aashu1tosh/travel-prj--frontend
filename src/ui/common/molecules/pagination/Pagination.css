@@ -1,0 +1,45 @@
+.page-no {
+    padding: 10px 15px;
+}
+
+.margin-15 {
+    margin: 15px;
+    cursor: pointer;
+}
+
+.per-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 75px;
+    width: 100%;
+    flex-direction: column;
+}
+
+.pagination input {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: 0;
+    outline: 0;
+    width: 30px;
+    padding: 4px;
+    text-align: center;
+    margin: 0px 10px;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

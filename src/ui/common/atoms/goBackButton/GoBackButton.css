@@ -1,0 +1,10 @@
+#go-back {
+    font-size: 16px;
+    color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#go-back:hover {
+    text-decoration: underline;
+}

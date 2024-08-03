@@ -1,5 +1,9 @@
 import { OfficeSetupProvider } from '@context/OfficeSetupProvider';
+import CompanyInfo from '@ui/admin/pages/companyInfo/CompanyInfo';
 import Dashboard from '@ui/admin/pages/dashboard/Dashboard';
+import SitePages from '@ui/admin/pages/sitePages/SitePages';
+import TeamMembers from '@ui/admin/pages/teamMembers/TeamMembers';
+import UserList from '@ui/admin/pages/usersList/UserList';
 import AboutUs from '@ui/landingPage/pages/aboutUs/AboutUs';
 import Contact from '@ui/landingPage/pages/contact/Contact';
 import LandingPage from '@ui/landingPage/pages/landingPage/LandingPage';
@@ -9,7 +13,6 @@ import ErrorBoundary from 'Error.Boundary';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './App.css';
 import ErrorPage from './ErrorPage';
-import UserList from '@ui/admin/pages/usersList/UserList';
 
 function App() {
     const router = createBrowserRouter([
@@ -65,6 +68,19 @@ function App() {
                     path: 'user-list',
                     element: <UserList />,
                 },
+                {
+                    path: 'company-info',
+                    element: <CompanyInfo />,
+                },
+                {
+                    path: 'site-pages',
+                    element: <SitePages />,
+                },
+                {
+                    path: 'team-members',
+                    element: <TeamMembers />,
+                },
+
                 {
                     path: '*',
                     element: <ErrorPage />,

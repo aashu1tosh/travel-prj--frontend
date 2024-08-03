@@ -56,20 +56,25 @@ const Contact = () => {
                         <Box
                             img={image?.location}
                             heading={'Location'}
-                            p={officeSetup?.location as string}
+                            p={
+                                officeSetup?.contactInformation
+                                    ?.location as string
+                            }
                         />
                         <Box
                             img={image?.email}
                             heading={'Email'}
-                            p={officeSetup?.email as string}
+                            p={officeSetup?.contactInformation?.email as string}
                         />
                         <Box
                             img={image?.contact}
                             heading={'Contact'}
                             p={
-                                (officeSetup?.phoneNumber as string) +
+                                (officeSetup?.contactInformation
+                                    ?.phoneNumber as string) +
                                 '\n' +
-                                officeSetup?.secondaryPhoneNumber
+                                officeSetup?.contactInformation
+                                    ?.secondaryPhoneNumber
                             }
                         />
                     </div>

@@ -10,6 +10,8 @@
     --site-color: #62a944;
     --site-light-color: rgba(98, 169, 68, 0.16);
     --secondary-site-color: #ffa742;
+    --admin-primary-color: #52b1b0;
+    --admin-accent-color: #94dad9;
     color-scheme: dark light;
     color: var(--secondary-color);
     background-color: var(--primary-color);

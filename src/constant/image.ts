@@ -14,7 +14,6 @@ import loader from '@assets/images/loader.svg';
 // import test6 from '@assets/images/test6.jpg';
 // import test7 from '@assets/images/test7.jpg';
 
-
 export const image = {
     // logo,
     email,
