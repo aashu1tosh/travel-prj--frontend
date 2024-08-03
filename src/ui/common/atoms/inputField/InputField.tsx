@@ -54,11 +54,7 @@ const InputField: React.FC<InputFieldProps> = ({
                 )}
             </div>
 
-            {error && (
-                <span className='red-text'>
-                    {error?.message}
-                </span>
-            )}
+            {error && <span className='red-text'>{error?.message}</span>}
         </>
     );
 };

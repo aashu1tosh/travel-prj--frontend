@@ -5,9 +5,10 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
-
 // Lazy load the modal component
-const AuthModal = lazy(() => import('@ui/landingPage/organisms/authModal/AuthModal'));
+const AuthModal = lazy(
+    () => import('@ui/landingPage/organisms/authModal/AuthModal')
+);
 
 const Navbar = () => {
     const { officeSetup } = useOfficeSetup();
@@ -72,7 +73,11 @@ const Navbar = () => {
         <>
             <nav className={`container ${sticky ? 'dark-nav' : ''}`}>
                 <a href='/'>
-                    <img alt='' src={`${officeSetup?.logoUrl}`} className='logo' />
+                    <img
+                        alt=''
+                        src={`${officeSetup?.logoUrl}`}
+                        className='logo'
+                    />
                 </a>
 
                 <ul className={mobileMenu ? '' : 'hide-mobile-menu'}>
@@ -90,14 +95,11 @@ const Navbar = () => {
                 </span>
             </nav>
 
-            {
-                isModalOpen && (
-                    <Suspense fallback={<div>Loading...</div>}>
-                        <AuthModal onClose={closeModal}>
-                        </AuthModal>
-                    </Suspense>
-                )
-            }
+            {isModalOpen && (
+                <Suspense fallback={<div>Loading...</div>}>
+                    <AuthModal onClose={closeModal}></AuthModal>
+                </Suspense>
+            )}
         </>
     );
 };

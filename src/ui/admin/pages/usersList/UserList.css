@@ -1,0 +1,47 @@
+/* UserList.css */
+
+.table {
+    width: 100%;
+    table-layout: auto;
+    text-align: center;
+    font-size: 0.875rem;
+    /* text-sm equivalent */
+}
+
+.table thead {
+    border: 2px solid black;
+}
+
+.table thead th {
+    border: 2px solid black;
+    padding: 0.5rem 0.25rem;
+    /* py-2 px-1 equivalent */
+}
+
+.table tbody {
+    border: 2px solid black;
+}
+
+.table tbody tr {
+    border: 1px solid black;
+}
+
+.table tbody td {
+    border: 2px solid black;
+    padding: 0.5rem;
+    /* py-2 equivalent */
+}
+
+.table .view-icon {
+    
+}
+
+.table .delete-icon {
+    color: #c5031f;
+    /* text-red-800 */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* width: 100%; */
+}

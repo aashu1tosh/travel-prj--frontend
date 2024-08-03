@@ -50,9 +50,15 @@ const Testimonials = () => {
                             <p>{testimonial[0].reviewerLocation}</p>
                             <div className='border-wrapper'>
                                 {testimonial[0].media ? (
-                                    <img src={testimonial[0].media.path} className='profile' />
+                                    <img
+                                        src={testimonial[0].media.path}
+                                        className='profile'
+                                    />
                                 ) : (
-                                    <img src={image?.logo} className='profile' />
+                                    <img
+                                        src={image?.logo}
+                                        className='profile'
+                                    />
                                 )}
                             </div>
                         </div>

@@ -14,7 +14,7 @@ import './AuthModal.css';
 
 interface FormData {
     email: string;
-    password: string
+    password: string;
 }
 
 interface AuthModalProps {
@@ -36,39 +36,60 @@ const AuthModal = (props: AuthModalProps) => {
     });
 
     const onSubmit: SubmitHandler<FormData> = async (data) => {
-        const response = await post({ url: '/auth/login', data: data as FormData, toastShow: true });
+        const response = await post({
+            url: '/auth/login',
+            data: data as FormData,
+            toastShow: true,
+        });
         const resData = response.data as IUser;
         const token = resData?.tokens?.accessToken as string;
         if (response.status) {
-            localStorage.setItem('accessToken', encryptDecrypt.encrypt(token) as string);
+            localStorage.setItem(
+                'accessToken',
+                encryptDecrypt.encrypt(token) as string
+            );
             navigate('/admin');
         }
     };
 
     return (
-        <Modal open={true} onClose={onClose} >
+        <Modal open={true} onClose={onClose}>
             <div className='auth-modal'>
                 <h1>Welcome</h1>
 
                 <div className='logo-wrapper'>
-                    <img src={officeSetup?.logoUrl} alt="" />
+                    <img src={officeSetup?.logoUrl} alt='' />
                 </div>
                 <p className='site-color'>{officeSetup?.slogan}</p>
 
                 <div className='auth-sign-in'>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <InputField placeholder='Enter your email' name='email' register={register} error={errors?.email} />
+                        <InputField
+                            placeholder='Enter your email'
+                            name='email'
+                            register={register}
+                            error={errors?.email}
+                        />
 
-                        <InputField placeholder='Enter your password' name='password' type='password' register={register} error={errors?.password} />
+                        <InputField
+                            placeholder='Enter your password'
+                            name='password'
+                            type='password'
+                            register={register}
+                            error={errors?.password}
+                        />
 
-                        <Button type={'submit'} name='Login' disabled={isSubmitting}></Button>
+                        <Button
+                            type={'submit'}
+                            name='Login'
+                            disabled={isSubmitting}
+                        ></Button>
                     </form>
                     <p>Forgot Password?</p>
                 </div>
             </div>
         </Modal>
+    );
+};
 
-    )
-}
-
-export default AuthModal
+export default AuthModal;

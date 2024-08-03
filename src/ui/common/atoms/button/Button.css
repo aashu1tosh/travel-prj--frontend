@@ -1,4 +1,4 @@
-button {
+#custom-button {
     margin: 10px 0px;
     padding: 10px 20px;
     width: 100%;
@@ -10,7 +10,7 @@ button {
     outline: 0;
 }
 
-button img#loader {
+#custom-button img#loader {
     height: 15px;
     width: auto;
 }

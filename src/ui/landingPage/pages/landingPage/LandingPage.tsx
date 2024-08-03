@@ -1,14 +1,19 @@
+import Testimonials from '@ui/landingPage/molecules/testimonials/Testimonials';
+import AboutSection from '@ui/landingPage/organisms/aboutSection/AboutSection';
 import Hero from '@ui/landingPage/organisms/hero/Hero';
 import './LandingPage.css';
-import Testimonials from '@ui/landingPage/molecules/testimonials/Testimonials';
 
 const LandingPage = () => {
     return (
         <>
             <Hero />
-            <div className='container'></div>
+            <div className='container'>
+                <AboutSection />
+            </div>
             <Testimonials />
-            <div className='container'></div>
+            <div className='container'>
+                <AboutSection />
+            </div>
         </>
     );
 };

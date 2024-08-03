@@ -1,7 +1,9 @@
 .testimonials {
-    background: linear-gradient(90deg,
-            rgba(98, 169, 68, 0.577468487394958) 0%,
-            rgba(255, 255, 255, 0.87) 55%);
+    background: linear-gradient(
+        90deg,
+        rgba(98, 169, 68, 0.577468487394958) 0%,
+        rgba(255, 255, 255, 0.87) 55%
+    );
     height: 345px;
     padding: 50px 0px;
     /* margin: 50px 0px; */
@@ -35,4 +37,3 @@
     height: 50px;
     clip-path: circle();
 }
-

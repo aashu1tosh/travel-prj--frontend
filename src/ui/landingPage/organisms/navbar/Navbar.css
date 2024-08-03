@@ -1,6 +1,6 @@
 nav {
     width: 100%;
-    /* background-color: #333; */
+    background-color: var(--primary-color);
     /* color: black; */
     padding: 0;
     position: fixed;
@@ -11,6 +11,7 @@ nav {
     justify-content: space-between;
     z-index: 10;
     max-height: 85px;
+    border-bottom: 2px solid var(--site-color);
 }
 
 nav a {
@@ -33,9 +34,9 @@ nav ul li {
 }
 
 .dark-nav {
-    background-color: var(--site-color);
-    color: var(--primary-color);
-    transition: 0.5s;
+    /* background-color: var(--site-color); */
+    /* color: var(--primary-color); */
+    /* transition: 0.5s; */
 }
 
 .menu-icon {

@@ -1,5 +1,5 @@
-import { createRoot } from "react-dom/client";
-import Toast, { ToastProps } from "./Toast";
+import { createRoot } from 'react-dom/client';
+import Toast, { ToastProps } from './Toast';
 
 interface ToastOptions {
     id?: string;
@@ -15,10 +15,12 @@ export class ToastManager {
     private root: ReturnType<typeof createRoot>;
 
     constructor() {
-        const body = document.getElementsByTagName("body")[0] as HTMLBodyElement;
-        const toastContainer = document.createElement("div") as HTMLDivElement;
-        toastContainer.id = "toast-container-main";
-        body.insertAdjacentElement("beforeend", toastContainer);
+        const body = document.getElementsByTagName(
+            'body'
+        )[0] as HTMLBodyElement;
+        const toastContainer = document.createElement('div') as HTMLDivElement;
+        toastContainer.id = 'toast-container-main';
+        body.insertAdjacentElement('beforeend', toastContainer);
         this.containerRef = toastContainer;
         this.root = createRoot(this.containerRef); // Initialize the root for concurrent mode
     }
@@ -36,7 +38,9 @@ export class ToastManager {
     }
 
     public destroy(id: string): void {
-        this.toasts = this.toasts.filter((toast: ToastProps) => toast.id !== id);
+        this.toasts = this.toasts.filter(
+            (toast: ToastProps) => toast.id !== id
+        );
         this.render();
     }
 

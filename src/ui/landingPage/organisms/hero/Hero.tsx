@@ -34,6 +34,8 @@ const Hero: React.FC = () => {
         <div className='hero'>
             <div className='hero-img'>
                 <img src={heroData?.media?.path} alt='' />
+                {/* <img src={image?.test7} alt='' /> */}
+
                 <div className='hero-text container'>
                     <h3>{pageMapLabel[heroData?.page as string]}</h3>
                     <p>{heroData ? heroData?.slogan : 'Explore with us'}</p>

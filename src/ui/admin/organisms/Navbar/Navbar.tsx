@@ -8,15 +8,17 @@ import './Navbar.css';
 const Navbar: React.FC = () => {
     const { officeSetup } = useOfficeSetup();
     return (
-        <div id="unique-navbar">
-            <div><p>Welcome Admin</p></div>
+        <div id='unique-navbar'>
+            <div>
+                <p>Welcome Admin</p>
+            </div>
             <Link to='/'>
-                <div className="navbar-logo">
-                    <img src={officeSetup?.logoUrl || image?.logo} alt="Logo" />
+                <div className='navbar-logo'>
+                    <img src={officeSetup?.logoUrl || image?.logo} alt='Logo' />
                 </div>
             </Link>
 
-            <div className="navbar-links">
+            <div className='navbar-links'>
                 {/* <li>{localStorage.getItem("role")}</li> */}
                 {/* <li><ThemeToggleButton /></li> */}
             </div>

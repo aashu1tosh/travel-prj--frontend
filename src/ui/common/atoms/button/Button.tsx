@@ -13,7 +13,7 @@ const Button: React.FC<ButtonProps> = ({
     disabled = false,
 }) => {
     return (
-        <button type={type} disabled={disabled}>
+        <button type={type} disabled={disabled} id='custom-button'>
             {disabled ? <img src={image?.loader} id='loader' alt='' /> : name}
         </button>
     );

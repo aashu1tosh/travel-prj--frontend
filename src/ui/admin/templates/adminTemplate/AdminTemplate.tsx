@@ -1,7 +1,7 @@
-import Navbar from "@ui/admin/organisms/Navbar/Navbar"
-import Sidebar from "@ui/admin/organisms/Sidebar.tsx/Sidebar"
-import { Outlet } from "react-router-dom"
-import './AdminTemplate.css'
+import Navbar from '@ui/admin/organisms/Navbar/Navbar';
+import Sidebar from '@ui/admin/organisms/Sidebar.tsx/Sidebar';
+import { Outlet } from 'react-router-dom';
+import './AdminTemplate.css';
 
 const AdminTemplate = () => {
     return (
@@ -12,7 +12,7 @@ const AdminTemplate = () => {
                 <Outlet />
             </div>
         </>
-    )
-}
+    );
+};
 
-export default AdminTemplate
+export default AdminTemplate;
