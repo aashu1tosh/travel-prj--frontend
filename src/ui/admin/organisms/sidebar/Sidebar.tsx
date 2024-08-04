@@ -1,19 +1,38 @@
-import React from 'react';
+import React, { Suspense, lazy, useState } from 'react';
 import { CgWebsite } from 'react-icons/cg';
 import { FaInfoCircle, FaSignOutAlt, FaTachometerAlt } from 'react-icons/fa';
 import { FaWpforms } from 'react-icons/fa6';
 import { MdAdminPanelSettings } from 'react-icons/md';
 import { RiTeamFill } from 'react-icons/ri';
 import { TbLetterT } from 'react-icons/tb';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Sidebar.css';
 
+interface Route {
+    path: string;
+    title: string;
+    icon?: React.ReactNode; // or React.ComponentType
+}
+
+const ConfirmationModal = lazy(
+    () => import('@ui/common/organisms/confirmationModal/ConfirmationModal')
+);
+
 const Sidebar: React.FC = () => {
-    interface Route {
-        path: string;
-        title: string;
-        icon?: React.ReactNode; // or React.ComponentType
-    }
+    const navigate = useNavigate();
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
+
+    const confirmLogout = () => {
+        openModal();
+    };
+
+    const logout = async () => {
+        localStorage.removeItem('accessToken');
+        closeModal();
+        navigate('/');
+    };
 
     const routes: Route[] = [
         {
@@ -64,11 +83,23 @@ const Sidebar: React.FC = () => {
                             </li>
                         </Link>
                     ))}
-                    <li>
+                    <li onClick={confirmLogout}>
                         <FaSignOutAlt /> Logout
                     </li>
                 </div>
             </div>
+
+            {isModalOpen && (
+                <Suspense fallback={<div>Loading...</div>}>
+                    <ConfirmationModal
+                        open={true}
+                        onClose={closeModal}
+                        onConfirm={logout}
+                        title='Are you sure?'
+                        message='You want to logout from the system'
+                    />
+                </Suspense>
+            )}
         </>
     );
 };

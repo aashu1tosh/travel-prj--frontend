@@ -5,7 +5,7 @@ import { IMedia } from './media.interface';
 export interface ITestimonial extends IBase {
     fullName: string;
     testimonial: string;
-    rating: 1 | 2 | 3 | 4 | 5 | null;
+    rating: number;
     reviewerLocation: string;
     media: IMedia | null;
 }
@@ -13,4 +13,20 @@ export interface ITestimonial extends IBase {
 export interface ITestimonialResponse extends IBase {
     data: ITestimonial[];
     total: PaginationInterface;
+}
+
+export interface ITestimonialReq extends IBase {
+    fullName: string;
+    testimonial: string;
+    rating: string;
+    reviewerLocation: string;
+    media?: string;
+}
+
+export interface ITestimonialPayload extends IBase {
+    fullName: string;
+    testimonial: string;
+    rating: number;
+    reviewerLocation: string;
+    media: string;
 }

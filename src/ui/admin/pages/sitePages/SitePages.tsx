@@ -85,6 +85,7 @@ const SitePages = () => {
                         options={options}
                         // options={}
                         register={register}
+                        error={errors?.page}
                     />
                 </div>
                 <br />
@@ -97,7 +98,7 @@ const SitePages = () => {
                         <img src={heroData?.media?.path} alt='' />
 
                         <div className='hero-admin-text container'>
-                            <h3>{heroData?.page}</h3>
+                            <h3>{pageMapLabel[heroData?.page as string]}</h3>
                             <p>{heroData?.slogan}</p>
                         </div>
                     </div>

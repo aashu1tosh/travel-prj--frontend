@@ -1,12 +1,15 @@
 import useAPI from '@hooks/useAPI';
 import { ITeamMember } from '@interface/teamMembers.interface';
-import AddTeamMember from '@ui/admin/organisms/addTeamMember/AddTeamMember';
 import Button from '@ui/common/atoms/button/Button';
 import ConfirmationModal from '@ui/common/organisms/confirmationModal/ConfirmationModal';
 import Modal from '@ui/common/organisms/modal/Modal';
 import Table from '@ui/common/organisms/table/Table';
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import './TeamMembersList.css';
+
+const AddTeamMember = lazy(
+    () => import('@ui/admin/organisms/addTeamMember/AddTeamMember')
+);
 
 const TeamMembersList = () => {
     const { get, mydelete } = useAPI<ITeamMember[]>();
@@ -32,7 +35,7 @@ const TeamMembersList = () => {
     const closeAddTeamModal = () => setAddTeamModal(false);
 
     const onDelete = async () => {
-        const response = await mydelete({ url: `/team-member/`, id: id });
+        const response = await mydelete({ url: `/team-member`, id: id });
         console.log(response);
         if (response.status) {
             const updatedTeamMembers = teamMembers?.filter(

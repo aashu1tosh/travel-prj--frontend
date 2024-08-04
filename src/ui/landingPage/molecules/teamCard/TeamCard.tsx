@@ -15,11 +15,7 @@ const TeamCard = (props: TeamCardProps) => {
         <div className='flip-card'>
             <div className='flip-card-inner'>
                 <div className='flip-card-front'>
-                    <img
-                        src={mediaUrl}
-                        alt='Avatar'
-                        style={{ width: 300, height: 300 }}
-                    />
+                    <img src={mediaUrl} alt='Avatar' />
                 </div>
                 <div className='flip-card-back'>
                     <h1>{`${firstName ?? 'First Name'} ${lastName ?? 'Last Name'}`}</h1>

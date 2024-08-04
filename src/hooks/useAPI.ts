@@ -166,7 +166,7 @@ const useAPI = <T>() => {
         id: string;
     }): Promise<IResponse<T>> => {
         try {
-            const response = await axios.delete(`${url}${id}`);
+            const response = await axios.delete(`${url}/${id}`);
             {
                 toastShow &&
                     toast.show({

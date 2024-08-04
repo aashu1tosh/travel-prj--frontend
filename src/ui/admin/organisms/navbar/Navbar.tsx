@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 // import ThemeToggleButton from 'ui/atom/ThemeToggleButton/ThemeToggleButton';
 import { useOfficeSetup } from 'hooks/useOfficeSetup';
+import moment from 'moment';
 import './Navbar.css';
 
 const Navbar: React.FC = () => {
@@ -22,7 +23,7 @@ const Navbar: React.FC = () => {
             </Link>
 
             <div className='navbar-links'>
-                {/* <li>{localStorage.getItem("role")}</li> */}
+                <li>{moment().format('YYYY-MM-DD HH:mm:ss')}</li>
                 {/* <li><ThemeToggleButton /></li> */}
             </div>
         </div>

@@ -73,3 +73,15 @@
         flex-direction: column;
     }
 }
+
+@media (max-width: 620px) {
+    .contact-company-info .contact-main .form-container {
+        width: 90vw !important;
+        height: max-content !important;
+    }
+
+    .c-form-row {
+        display: flex;
+        flex-direction: column;
+    }
+}

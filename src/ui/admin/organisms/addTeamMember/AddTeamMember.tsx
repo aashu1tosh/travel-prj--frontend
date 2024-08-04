@@ -43,7 +43,7 @@ const AddTeamMember: React.FC<AddTeamMembersProps> = ({ setTeamMembers }) => {
             toastShow: true,
         });
         if (response.status) {
-            const newMember = payload as unknown as ITeamMember;
+            const newMember = response.data as unknown as ITeamMember;
             setTeamMembers((prevMembers) => {
                 if (prevMembers) {
                     return [...prevMembers, newMember];

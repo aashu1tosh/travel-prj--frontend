@@ -4,17 +4,22 @@
         rgba(98, 169, 68, 0.577468487394958) 0%,
         rgba(255, 255, 255, 0.87) 55%
     );
-    height: 345px;
+    min-height: 345px;
     padding: 50px 0px;
-    /* margin: 50px 0px; */
+    height: max-content;
 }
 
 .testimonials .testimonials-container {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.testimonials .testimonials-container .left,
+.testimonials .testimonials-container .right {
+    padding: 25px 0;
 }
 
 .testimonials .testimonials-container .left .button-wrapper {

@@ -92,7 +92,7 @@ const Contact = () => {
                         <div className='right'>
                             <div className='form-container'>
                                 <form onSubmit={handleSubmit(onSubmit)}>
-                                    <div className='flex-space-between'>
+                                    <div className='flex-space-between c-form-row'>
                                         <div>
                                             <InputField
                                                 name={'fullName'}
@@ -111,7 +111,7 @@ const Contact = () => {
                                         </div>
                                     </div>
 
-                                    <div className='flex-space-between'>
+                                    <div className='flex-space-between c-form-row'>
                                         <div>
                                             <InputField
                                                 name={'phoneNumber'}
