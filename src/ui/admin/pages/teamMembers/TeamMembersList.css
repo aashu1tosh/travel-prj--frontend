@@ -1,0 +1,13 @@
+.admin-team-members .parent-container {
+    position: relative;
+    width: 100%;
+    /* border: 2px solid black; */
+    height: 50px;
+}
+
+.admin-team-members .button-wrapper {
+    width: 140px;
+    position: absolute;
+    right: 10px;
+    top: -5px;
+}

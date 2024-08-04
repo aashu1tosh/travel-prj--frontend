@@ -2,6 +2,7 @@ import location from '@assets/images/address.svg';
 import contact from '@assets/images/contact.svg';
 import email from '@assets/images/email.svg';
 import loader from '@assets/images/loader.svg';
+import logo from '@assets/images/logo.svg';
 // import logo from '@assets/images/test2.png';
 
 // import test3 from '@assets/images/nice.jpg';
@@ -15,7 +16,7 @@ import loader from '@assets/images/loader.svg';
 // import test7 from '@assets/images/test7.jpg';
 
 export const image = {
-    // logo,
+    logo,
     email,
     location,
     contact,

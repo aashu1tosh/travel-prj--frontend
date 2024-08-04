@@ -1,5 +1,8 @@
 import { image } from '@constant/image';
-import { ITestimonial } from '@interface/testimonial.interface';
+import {
+    ITestimonial,
+    ITestimonialResponse,
+} from '@interface/testimonial.interface';
 import Button from '@ui/common/atoms/button/Button';
 import useAPI from 'hooks/useAPI';
 import { useEffect, useState } from 'react';
@@ -7,12 +10,14 @@ import { FaStar } from 'react-icons/fa6';
 import './Testimonials.css';
 
 const Testimonials = () => {
-    const { get } = useAPI<ITestimonial[]>();
+    const { get } = useAPI<ITestimonialResponse>();
     const [testimonial, setTestimonial] = useState<ITestimonial[] | null>();
 
     const fetchData = async () => {
-        const response = await get({ url: '/testimonial' });
-        if (response.status) setTestimonial(response.data);
+        const response = await get({
+            url: `/testimonial?page=${1}&perpage=${1}`,
+        });
+        if (response.status) setTestimonial(response?.data?.data);
     };
 
     const renderStars = (rating: number | null) => {

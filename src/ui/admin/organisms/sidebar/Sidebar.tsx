@@ -1,8 +1,10 @@
 import React from 'react';
 import { CgWebsite } from 'react-icons/cg';
 import { FaInfoCircle, FaSignOutAlt, FaTachometerAlt } from 'react-icons/fa';
+import { FaWpforms } from 'react-icons/fa6';
 import { MdAdminPanelSettings } from 'react-icons/md';
 import { RiTeamFill } from 'react-icons/ri';
+import { TbLetterT } from 'react-icons/tb';
 import { Link } from 'react-router-dom';
 import './Sidebar.css';
 
@@ -38,6 +40,16 @@ const Sidebar: React.FC = () => {
             path: '/admin/team-members',
             title: 'Team Members',
             icon: <RiTeamFill />,
+        },
+        {
+            path: '/admin/testimonials',
+            title: 'Testimonials',
+            icon: <TbLetterT />,
+        },
+        {
+            path: '/admin/contact-form',
+            title: 'Contact Forms',
+            icon: <FaWpforms />,
         },
     ];
 

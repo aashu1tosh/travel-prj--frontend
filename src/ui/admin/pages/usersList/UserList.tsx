@@ -29,7 +29,6 @@ const UserList = () => {
     const fetchData = async () => {
         const response = await get({
             url: `/admin/users?page=${totalPages?.currentPage || 1}&perpage=${totalPages?.perpage}`,
-            // url: `/admin/users`,
             toastShow: true,
         });
         console.log('🚀 ~ fetchData ~ response:', response);

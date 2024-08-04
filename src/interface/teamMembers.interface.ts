@@ -8,5 +8,25 @@ export interface ITeamMember extends IBase {
     phoneNumber?: string | null;
     position: string;
     order: number;
-    media: IMedia;
+    media?: IMedia;
+}
+
+export interface ITeamMemberReq extends IBase {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phoneNumber?: string;
+    position: string;
+    order: string;
+    media?: string;
+}
+
+export interface ITeamMemberPayload extends IBase {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phoneNumber?: string;
+    position: string;
+    order: number;
+    media: string;
 }

@@ -9,7 +9,7 @@
     overflow-x: hidden;
     transition: 0.3s;
     transform: translateX(-100%);
-    z-index: 0;
+    z-index: 2;
     /* Ensure sidebar is on top */
     margin-top: 55px;
 }

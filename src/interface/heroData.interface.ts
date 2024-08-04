@@ -6,3 +6,14 @@ export interface IHeroData extends IBase {
     slogan: string;
     media: IMedia;
 }
+
+export interface IHeroDataAdmin {
+    page: string;
+    slogan: string;
+}
+
+export interface IHeroDataPayload {
+    page: string;
+    slogan: string;
+    media: string;
+}

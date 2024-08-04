@@ -1,4 +1,5 @@
 import { officeSetupData } from '@context/OfficeSetupProvider';
+import { companyInformationLabel } from '@data/map';
 import useAPI from '@hooks/useAPI';
 import { useOfficeSetup } from '@hooks/useOfficeSetup';
 import { ICompany } from '@interface/company.interface';
@@ -40,7 +41,6 @@ const CompanyInformationForm = () => {
         <form onSubmit={handleSubmit(companyUpdate)}>
             <div className='main-form'>
                 {officeSetup &&
-                    // eslint-disable-next-line @typescript-eslint/no-unused-vars
                     Object.entries(officeSetup.company).map(
                         // eslint-disable-next-line @typescript-eslint/no-unused-vars
                         ([key, _value]) => {
@@ -52,7 +52,7 @@ const CompanyInformationForm = () => {
                                 >
                                     <LabeledInput
                                         name={key}
-                                        label={key}
+                                        label={companyInformationLabel[key]}
                                         key={key}
                                         register={register}
                                         readOnly={readOnly}

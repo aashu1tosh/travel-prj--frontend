@@ -2,14 +2,16 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    padding: 10px 30px;
 }
 
 .company-info .company-info-form form {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     flex-direction: column;
+    margin: 20px 0;
 }
 
 .company-info .company-info-form {
@@ -23,5 +25,7 @@
 }
 
 .company-info .button-wrapper {
-    width: 150px;
+    padding-left: 5vw;
+    padding-right: auto;
+    width: 250px;
 }

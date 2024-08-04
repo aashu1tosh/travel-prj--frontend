@@ -15,7 +15,7 @@
     height: 100%;
 }
 
-input:read-only {
+.input-wrapper :read-only {
     cursor: not-allowed;
 }
 

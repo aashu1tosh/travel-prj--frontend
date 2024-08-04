@@ -1,4 +1,5 @@
 import { officeSetupData } from '@context/OfficeSetupProvider';
+import { companyContactInformationLabel } from '@data/map';
 import useAPI from '@hooks/useAPI';
 import { useOfficeSetup } from '@hooks/useOfficeSetup';
 import { ICompanyInfo } from '@interface/company.interface';
@@ -56,7 +57,9 @@ const CompanyContactInformationForm = () => {
                                 >
                                     <LabeledInput
                                         name={key}
-                                        label={key}
+                                        label={
+                                            companyContactInformationLabel[key]
+                                        }
                                         key={key}
                                         register={register}
                                         readOnly={readOnly}

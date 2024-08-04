@@ -58,9 +58,9 @@ const AuthModal = (props: AuthModalProps) => {
                 <h1>Welcome</h1>
 
                 <div className='logo-wrapper'>
-                    <img src={officeSetup?.logoUrl} alt='' />
+                    <img src={officeSetup?.company?.media?.path} alt='' />
                 </div>
-                <p className='site-color'>{officeSetup?.slogan}</p>
+                <p className='site-color'>{officeSetup?.company?.slogan}</p>
 
                 <div className='auth-sign-in'>
                     <form onSubmit={handleSubmit(onSubmit)}>

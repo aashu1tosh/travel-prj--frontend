@@ -4,6 +4,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa6';
 import './InputField.css';
 
 interface InputFieldProps {
+    required?: string;
     placeholder?: string;
     type?: string;
     name: string;
@@ -15,6 +16,7 @@ interface InputFieldProps {
 }
 
 const InputField: React.FC<InputFieldProps> = ({
+    required = 'false',
     placeholder,
     type = 'text',
     name,
@@ -44,7 +46,7 @@ const InputField: React.FC<InputFieldProps> = ({
                             : 'text'
                     }
                     readOnly={readOnly}
-                    placeholder={placeholder}
+                    placeholder={placeholder + `${required ? '*' : ''}`}
                     {...(register ? register(name) : null)}
                 />
                 {type === 'password' && (

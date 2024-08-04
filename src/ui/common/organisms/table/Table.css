@@ -1,5 +1,4 @@
-/* UserList.css */
-
+/* Table.css */
 .table {
     width: 100%;
     table-layout: auto;
@@ -31,7 +30,6 @@
 .table tbody td {
     border: 2px solid black;
     padding: 0.5rem;
-    /* py-2 equivalent */
 }
 
 /* .table .view-icon {} */
@@ -44,4 +42,9 @@
     align-items: center;
     justify-content: center;
     /* width: 100%; */
+}
+
+.table img {
+    height: 100px;
+    width: 100px;
 }

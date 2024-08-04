@@ -69,8 +69,9 @@ const useAPI = <T>() => {
         data: Partial<T>;
     }): Promise<IResponse<T>> => {
         try {
+            console.log(data, 'printing data from useapi');
+            // console.log(data?.media, 'media print useapi')
             const response = await axios.post(url, data);
-
             {
                 toastShow &&
                     toast.show({

@@ -1,8 +1,10 @@
 import { OfficeSetupProvider } from '@context/OfficeSetupProvider';
 import CompanyInfo from '@ui/admin/pages/companyInfo/CompanyInfo';
+import AdminContactForm from '@ui/admin/pages/contactForm/AdminContactForm';
 import Dashboard from '@ui/admin/pages/dashboard/Dashboard';
 import SitePages from '@ui/admin/pages/sitePages/SitePages';
-import TeamMembers from '@ui/admin/pages/teamMembers/TeamMembers';
+import TeamMembersList from '@ui/admin/pages/teamMembers/TeamMembersList';
+import AdminTestimonialPage from '@ui/admin/pages/testimonials/AdminTestimonialPage';
 import UserList from '@ui/admin/pages/usersList/UserList';
 import AboutUs from '@ui/landingPage/pages/aboutUs/AboutUs';
 import Contact from '@ui/landingPage/pages/contact/Contact';
@@ -78,9 +80,16 @@ function App() {
                 },
                 {
                     path: 'team-members',
-                    element: <TeamMembers />,
+                    element: <TeamMembersList />,
                 },
-
+                {
+                    path: 'testimonials',
+                    element: <AdminTestimonialPage />,
+                },
+                {
+                    path: 'contact-form',
+                    element: <AdminContactForm />,
+                },
                 {
                     path: '*',
                     element: <ErrorPage />,
