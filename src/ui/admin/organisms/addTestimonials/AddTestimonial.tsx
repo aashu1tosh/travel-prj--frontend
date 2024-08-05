@@ -34,7 +34,6 @@ const AddTestimonial: React.FC<AddTestimonialProps> = ({ setTestimonials }) => {
         const payload: ITestimonial = data as unknown as ITestimonial;
         payload.media = media as unknown as IMedia;
         payload.rating = parseInt(payload.rating as unknown as string);
-        console.log(payload);
 
         const response = await post({
             url: '/testimonial',

@@ -1,3 +1,4 @@
+import { image } from '@constant/image';
 import { pageMapLabel } from '@data/map';
 import { IHeroData } from '@interface/heroData.interface';
 import useAPI from 'hooks/useAPI';
@@ -33,7 +34,10 @@ const Hero: React.FC = () => {
     return (
         <div className='hero'>
             <div className='hero-img'>
-                <img src={heroData?.media?.path} alt='' />
+                <img
+                    src={heroData?.media?.path || image?.heroFallback}
+                    alt=''
+                />
                 {/* <img src={image?.test7} alt='' /> */}
 
                 <div className='hero-text container'>

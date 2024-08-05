@@ -36,7 +36,6 @@ const TeamMembersList = () => {
 
     const onDelete = async () => {
         const response = await mydelete({ url: `/team-member`, id: id });
-        console.log(response);
         if (response.status) {
             const updatedTeamMembers = teamMembers?.filter(
                 (member) => (member?.id as string) != id
@@ -48,7 +47,6 @@ const TeamMembersList = () => {
 
     const fetchData = async () => {
         const response = await get({ url: '/team-member' });
-        console.log('🚀 ~ fetchData ~ response:', response);
         if (response.status) setTeamMembers(response.data as ITeamMember[]);
     };
 

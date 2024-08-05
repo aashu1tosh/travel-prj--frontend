@@ -34,7 +34,6 @@ const CompanyContactInformationForm = () => {
         if (response.status) {
             const tempData = officeSetup as officeSetupData;
             if (tempData) tempData.contactInformation = data;
-            console.log(tempData);
             changeOfficeSetup(tempData);
         }
     };

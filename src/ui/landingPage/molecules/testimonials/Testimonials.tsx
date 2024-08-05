@@ -4,9 +4,9 @@ import {
     ITestimonialResponse,
 } from '@interface/testimonial.interface';
 import Button from '@ui/common/atoms/button/Button';
+import RatingStars from '@ui/landingPage/atoms/ratingStars/RatingStars';
 import useAPI from 'hooks/useAPI';
 import { useEffect, useState } from 'react';
-import { FaStar } from 'react-icons/fa6';
 import './Testimonials.css';
 
 const Testimonials = () => {
@@ -18,14 +18,6 @@ const Testimonials = () => {
             url: `/testimonial?page=${1}&perpage=${1}`,
         });
         if (response.status) setTestimonial(response?.data?.data);
-    };
-
-    const renderStars = (rating: number | null) => {
-        if (rating === null) return null;
-        // Create an array of length `rating` and map each element to a star icon
-        return Array.from({ length: rating }, (_, index) => (
-            <FaStar key={index} style={{ color: 'gold' }} />
-        ));
     };
 
     useEffect(() => {
@@ -48,8 +40,10 @@ const Testimonials = () => {
                 <div className='right'>
                     {testimonial ? (
                         <div>
-                            <p>{testimonial[0].testimonial}</p>
-                            {renderStars(testimonial[0].rating)}
+                            <p className='main-testimonial'>
+                                {testimonial[0].testimonial}
+                            </p>
+                            <RatingStars rating={testimonial[0].rating} />
                             <p>{testimonial[0].fullName}</p>
                             <p>{testimonial[0].reviewerLocation}</p>
                             <div className='border-wrapper'>
@@ -60,7 +54,7 @@ const Testimonials = () => {
                                     />
                                 ) : (
                                     <img
-                                        src={image?.logo}
+                                        src={image?.userFallback}
                                         className='profile'
                                     />
                                 )}

@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
             <Link to='/'>
                 <div className='navbar-logo'>
                     <img
-                        src={officeSetup?.company?.media?.path || image?.loader}
+                        src={officeSetup?.company?.media?.path || image?.logo}
                         alt='Logo'
                     />
                 </div>
@@ -24,7 +24,6 @@ const Navbar: React.FC = () => {
 
             <div className='navbar-links'>
                 <li>{moment().format('YYYY-MM-DD HH:mm:ss')}</li>
-                {/* <li><ThemeToggleButton /></li> */}
             </div>
         </div>
     );

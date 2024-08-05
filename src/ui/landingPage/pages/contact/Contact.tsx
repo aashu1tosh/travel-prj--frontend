@@ -38,6 +38,7 @@ const Contact = () => {
         const { check, ...payload } = data;
         const response = await post({
             url: '/user/contact-form',
+            toastShow: true,
             data: payload,
         });
         if (response.status) reset();
@@ -65,6 +66,7 @@ const Contact = () => {
                             img={image?.email}
                             heading={'Email'}
                             p={officeSetup?.contactInformation?.email as string}
+                            a='mail:to'
                         />
                         <Box
                             img={image?.contact}
@@ -72,10 +74,11 @@ const Contact = () => {
                             p={
                                 (officeSetup?.contactInformation
                                     ?.phoneNumber as string) +
-                                '\n' +
+                                ',\n' +
                                 officeSetup?.contactInformation
                                     ?.secondaryPhoneNumber
                             }
+                            a='tel:'
                         />
                     </div>
 

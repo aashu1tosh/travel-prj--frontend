@@ -32,7 +32,6 @@ const AddTeamMember: React.FC<AddTeamMembersProps> = ({ setTeamMembers }) => {
 
     const onSubmit = async (data: ITeamMemberReq) => {
         // Object.defineProperty(data, "media", { value: media });
-        console.log(media);
         const payload: ITeamMemberPayload =
             data as unknown as ITeamMemberPayload;
         payload.order = parseInt(data.order);

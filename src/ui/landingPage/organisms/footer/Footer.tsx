@@ -39,10 +39,22 @@ const Footer = () => {
                     alt=''
                     className='logo'
                 />
-                <p id='description'>{officeSetup?.company?.description}</p>
+                <p>{officeSetup?.company?.description}</p>
             </div>
             <div id='footer-2'>
                 <h3>POPULAR DESTINATION</h3>
+                <ul>
+                    <li>Kathmandu Valley</li>
+                    <li>Pokhara Valley</li>
+                    <li>Sindhupalchok Melamchi</li>
+                    <li>Kavrepalanchok</li>
+                    <li>Annapurna Base Camp</li>
+                    <li>Lumbimi</li>
+                    <li>Everest Base Camp</li>
+                    <li>Manag Valley</li>
+                    <li>Mustang Valley</li>
+                    <li>Kapuche Glacier</li>
+                </ul>
             </div>
             <div id='footer-3'>
                 <h3>CONTACT INFORMATION</h3>
@@ -60,7 +72,14 @@ const Footer = () => {
                         <div className='list'>
                             <div className='icons'>{<FaPhoneAlt />}</div>
                             <div>
-                                {officeSetup?.contactInformation?.phoneNumber}
+                                <a
+                                    href={`tel:${officeSetup?.contactInformation?.phoneNumber}`}
+                                >
+                                    {
+                                        officeSetup?.contactInformation
+                                            ?.phoneNumber
+                                    }
+                                </a>
                             </div>
                         </div>
                     </li>
@@ -68,7 +87,13 @@ const Footer = () => {
                     <li>
                         <div className='list'>
                             <div className='icons'>{<MdEmail />}</div>
-                            <div>{officeSetup?.contactInformation?.email}</div>
+                            <div>
+                                <a
+                                    href={`mailto:${officeSetup?.contactInformation?.email}`}
+                                >
+                                    {officeSetup?.contactInformation?.email}
+                                </a>
+                            </div>
                         </div>
                     </li>
                 </ul>

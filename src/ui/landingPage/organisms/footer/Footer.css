@@ -92,3 +92,28 @@
     max-width: 335px;
     padding: 25px 12px;
 }
+
+footer #footer-1 p {
+    font-size: 16px;
+    padding-top: 10px;
+}
+
+/* Popular destination part */
+
+footer #footer-2 ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+footer #footer-2 ul li {
+    padding: 10px 0px;
+    padding-right: 10px;
+}
+
+footer #footer-2 ul li img {
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+}

@@ -22,3 +22,8 @@
 .box p {
     text-align: center;
 }
+
+.box p a {
+    text-align: center;
+    text-decoration: none;
+}

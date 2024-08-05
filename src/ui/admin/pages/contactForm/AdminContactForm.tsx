@@ -34,7 +34,6 @@ const AdminContactForm = () => {
         const response = await get({
             url: `/admin/contact-form?page=${totalPages?.currentPage || 1}&perpage=${totalPages?.perpage}`,
         });
-        console.log('🚀 ~ fetchData ~ admin:', response);
         if (response.status) setContactForms(response?.data?.data);
     };
 

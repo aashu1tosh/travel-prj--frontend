@@ -1,4 +1,3 @@
-/* Table.css */
 .table {
     width: 100%;
     table-layout: auto;
@@ -6,7 +5,6 @@
     font-size: 0.875rem;
     min-width: 1000px;
     overflow-x: scroll;
-    /* text-sm equivalent */
 }
 
 .table thead {
@@ -16,7 +14,6 @@
 .table thead th {
     border: 2px solid black;
     padding: 0.5rem 0.25rem;
-    /* py-2 px-1 equivalent */
 }
 
 .table tbody {
@@ -30,6 +27,7 @@
 .table tbody td {
     border: 2px solid black;
     padding: 0.5rem;
+    max-width: 450px;
 }
 
 /* .table .view-icon {} */

@@ -63,13 +63,11 @@ const AdminTestimonialPage = () => {
         const response = await get({
             url: `/testimonial?page=${totalPages?.currentPage || 1}&perpage=${totalPages?.perpage}`,
         });
-        console.log('🚀 ~ fetchData ~ admin:', response);
         if (response.status) setTestimonials(response?.data?.data);
     };
 
     const onDelete = async () => {
         const response = await mydelete({ url: `/testimonial`, id: id });
-        console.log(response);
         if (response.status) {
             const updatedTeamMembers = testimonials?.filter(
                 (testimonial) => (testimonial?.id as string) != id

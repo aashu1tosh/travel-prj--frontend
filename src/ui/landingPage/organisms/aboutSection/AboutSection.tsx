@@ -5,7 +5,7 @@ const About = () => {
     return (
         <section className='about'>
             <div className='about-left'>
-                <img src={image?.loader} alt='' className='about-img' />
+                <img src={image?.lake} alt='' className='about-img' />
             </div>
             <div className='about-right'>
                 <h3>About Travel Info</h3>

@@ -9,7 +9,7 @@ import Button from '@ui/common/atoms/button/Button';
 import DragAndDrop from '@ui/common/atoms/dragAndDrop/DragAndDrop';
 import SelectOption from '@ui/common/atoms/selectOption/SelectOption';
 import LabeledInput from '@ui/common/molecules/labeledInput/LabeledInput';
-import { useEffect, useState } from 'react';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import './SitePage.css';
 
@@ -46,7 +46,6 @@ const SitePages = () => {
         });
         if (response.status) {
             const newData = response.data as unknown as IHeroData;
-            console.log(response.data);
             setHeroData(newData);
         }
     };
@@ -61,7 +60,7 @@ const SitePages = () => {
                 });
             }
         } catch (error) {
-            console.log('fetchData', error);
+            console.error(error);
         }
     };
 
@@ -69,8 +68,9 @@ const SitePages = () => {
         fetchData();
     }, [page]);
 
-    const onChangeClicked = (e: any) => {
-        setPage(e.target.value);
+    const onChangeClicked = (e: FormEvent<HTMLDivElement>) => {
+        const event = e as unknown as ChangeEvent<HTMLInputElement>;
+        setPage(event.target.value);
     };
 
     return (

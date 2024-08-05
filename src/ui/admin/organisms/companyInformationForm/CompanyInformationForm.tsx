@@ -30,7 +30,6 @@ const CompanyInformationForm = () => {
         if (response.status) {
             const tempData = officeSetup as officeSetupData;
             if (tempData) tempData.company = data;
-            console.log(tempData);
             changeOfficeSetup(tempData);
         }
     };

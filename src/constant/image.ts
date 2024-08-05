@@ -1,10 +1,11 @@
 import location from '@assets/images/address.svg';
 import contact from '@assets/images/contact.svg';
 import email from '@assets/images/email.svg';
+import lake from '@assets/images/lake.webp';
 import loader from '@assets/images/loader.svg';
 import logo from '@assets/images/logo.svg';
-// import logo from '@assets/images/test2.png';
-
+import heroFallback from '@assets/images/nice.jpg';
+import userFallback from '@assets/images/user_fallback.svg';
 // import test3 from '@assets/images/nice.jpg';
 // import test1 from '@assets/images/pagoda.jpg';
 
@@ -17,15 +18,11 @@ import logo from '@assets/images/logo.svg';
 
 export const image = {
     logo,
+    userFallback,
+    heroFallback,
     email,
     location,
     contact,
     loader,
-    // test1,
-    // test2,
-    // test3,
-    // test4,
-    // test5,
-    // test6,
-    // test7
+    lake,
 };

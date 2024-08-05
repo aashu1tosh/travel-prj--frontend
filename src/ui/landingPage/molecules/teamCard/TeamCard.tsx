@@ -6,7 +6,7 @@ interface TeamCardProps {
     email: string;
     phoneNumber: string | null;
     position: string;
-    mediaUrl: string;
+    mediaUrl?: string;
 }
 const TeamCard = (props: TeamCardProps) => {
     const { firstName, lastName, email, phoneNumber, position, mediaUrl } =

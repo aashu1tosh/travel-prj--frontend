@@ -42,3 +42,8 @@
     height: 50px;
     clip-path: circle();
 }
+
+.testimonials .main-testimonial {
+    font-size: 18px;
+    padding-bottom: 10px;
+}

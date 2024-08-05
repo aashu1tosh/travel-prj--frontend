@@ -6,7 +6,9 @@ import {
 import { IFetchUser, IFetchUserResponse } from '@interface/user.interface';
 import Pagination from '@ui/common/molecules/pagination/Pagination';
 import { Suspense, lazy, useEffect, useState } from 'react';
+import { FaCheck } from 'react-icons/fa';
 import { FcViewDetails } from 'react-icons/fc';
+import { ImCross } from 'react-icons/im';
 import './UserList.css';
 
 const ConfirmationModal = lazy(
@@ -31,7 +33,6 @@ const UserList = () => {
             url: `/admin/users?page=${totalPages?.currentPage || 1}&perpage=${totalPages?.perpage}`,
             toastShow: true,
         });
-        console.log('🚀 ~ fetchData ~ response:', response);
         if (response.status) {
             setFetchedData(response?.data?.data);
             setTotalPages(response?.data?.pagination as PaginationInterface);
@@ -44,7 +45,7 @@ const UserList = () => {
     };
 
     const deleteUser = async () => {
-        const response = await mydelete({ url: '/admin/users/', id: id });
+        const response = await mydelete({ url: '/admin/users', id: id });
         if (response.status) {
             const updatedUserData = fetchedData?.filter(
                 (data) => data.id !== id
@@ -80,7 +81,13 @@ const UserList = () => {
                                 <td>{item?.createdAt as unknown as string}</td>
                                 <td>{item?.email}</td>
                                 <td>{item?.role}</td>
-                                <td>{item?.otpVerified.toString()}</td>
+                                <td>
+                                    {item?.otpVerified ? (
+                                        <FaCheck style={{ color: 'green' }} />
+                                    ) : (
+                                        <ImCross style={{ color: 'red' }} />
+                                    )}
+                                </td>
                                 <td>
                                     <div className='view-icon'>
                                         <FcViewDetails size={24} />

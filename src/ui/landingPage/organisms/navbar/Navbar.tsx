@@ -18,7 +18,10 @@ const Navbar = () => {
     };
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-    const openModal = () => setIsModalOpen(true);
+    const openModal = () => {
+        setIsModalOpen(true);
+        toggleMenu();
+    };
     const closeModal = () => setIsModalOpen(false);
 
     interface Route {
@@ -75,7 +78,9 @@ const Navbar = () => {
                 <ul className={mobileMenu ? '' : 'hide-mobile-menu'}>
                     {routes.map((val, idx) => (
                         <Link to={`${val.path}`} key={idx}>
-                            <li key={idx}>{val.title}</li>
+                            <li key={idx} onClick={toggleMenu}>
+                                {val.title}
+                            </li>
                         </Link>
                     ))}
                     <li className='icons' onClick={openModal}>

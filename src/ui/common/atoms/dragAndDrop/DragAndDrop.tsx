@@ -15,7 +15,9 @@ interface DragAndDropProps {
 const DragAndDrop: React.FC<DragAndDropProps> = ({ setMedia }) => {
     const [files, setFiles] = useState<File[]>([]);
     const [dragging, setDragging] = useState<boolean>(false);
-    const [status, setStatus] = useState<string>('Submit');
+    const [status, setStatus] = useState<string>(
+        'Submit media before the form'
+    );
 
     const handleDrop = (e: DragEvent<HTMLDivElement>) => {
         e.preventDefault();
@@ -45,7 +47,6 @@ const DragAndDrop: React.FC<DragAndDropProps> = ({ setMedia }) => {
     };
 
     const handleUpload = async () => {
-        console.log('handle upload called');
         const formData = new FormData();
         formData.append('type', 'PROFILE');
         files?.forEach((f) => {
@@ -59,15 +60,11 @@ const DragAndDrop: React.FC<DragAndDropProps> = ({ setMedia }) => {
                     'Content-Type': 'multipart/form-data',
                 },
             });
-            console.log(response);
-            console.log(
-                response.data?.data?.mediaId,
-                'mediaId from drag and drop'
-            );
             setMedia(response?.data?.data?.mediaId);
             setStatus('Submit');
+            setFiles([]);
         } catch (error) {
-            console.log('Error uploading image:', error);
+            console.error(error);
         }
     };
 
@@ -100,6 +97,7 @@ const DragAndDrop: React.FC<DragAndDropProps> = ({ setMedia }) => {
                         opacity: 0,
                         width: '100%',
                         height: '100%',
+                        cursor: 'pointer',
                     }}
                 />
                 <p>Drag & drop files here, or click to select files</p>
@@ -110,7 +108,12 @@ const DragAndDrop: React.FC<DragAndDropProps> = ({ setMedia }) => {
                 </ul>
             </div>
 
-            <p onClick={handleUpload}>{status}</p>
+            <p
+                onClick={handleUpload}
+                style={{ color: 'green', cursor: 'pointer', padding: '10px' }}
+            >
+                {status}
+            </p>
         </>
     );
 };
