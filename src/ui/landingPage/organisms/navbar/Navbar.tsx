@@ -1,3 +1,4 @@
+import { image } from '@constant/image';
 import { useOfficeSetup } from 'hooks/useOfficeSetup';
 import { Suspense, lazy, useState } from 'react';
 import { FaRegUserCircle } from 'react-icons/fa';
@@ -70,7 +71,7 @@ const Navbar = () => {
                 <a href='/'>
                     <img
                         alt=''
-                        src={`${officeSetup?.company?.media?.path}`}
+                        src={`${officeSetup?.company?.media?.path}` || image?.logo}
                         className='logo'
                     />
                 </a>

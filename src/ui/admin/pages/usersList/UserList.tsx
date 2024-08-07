@@ -3,8 +3,9 @@ import {
     PaginationInterface,
     defaultPagination,
 } from '@interface/global.interface';
-import { IFetchUser, IFetchUserResponse } from '@interface/user.interface';
+import { IFetchUser, IFetchUserDetail, IFetchUserResponse } from '@interface/user.interface';
 import Pagination from '@ui/common/molecules/pagination/Pagination';
+import Modal from '@ui/common/organisms/modal/Modal';
 import { Suspense, lazy, useEffect, useState } from 'react';
 import { FaCheck } from 'react-icons/fa';
 import { FcViewDetails } from 'react-icons/fc';
@@ -24,9 +25,15 @@ const UserList = () => {
         useState<PaginationInterface>(defaultPagination);
     const [id, setId] = useState<string>('');
     const [refresh, setRefresh] = useState<boolean>(false);
+    const [userDetailModal, setUserDetailModal] = useState<boolean>();
+    const [userDetails, setUserDetails] = useState<IFetchUserDetail | null>(null);
 
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
+
+    const openUserDetailModal = () => setUserDetailModal(true);
+    const closeUserDetailModal = () => setUserDetailModal(false);
+
 
     const fetchData = async () => {
         const response = await get({
@@ -38,6 +45,17 @@ const UserList = () => {
             setTotalPages(response?.data?.pagination as PaginationInterface);
         }
     };
+
+    const viewDetails = async (id: string) => {
+        console.log("data");
+        console.log(id);
+        const response = await get({ url: `/admin/user/${id}` });
+        if (response.status) {
+            const data = response.data as unknown as IFetchUserDetail
+            setUserDetails(data)
+        }
+        openUserDetailModal();
+    }
 
     const confirmDelete = (id: string) => {
         setId(id);
@@ -89,7 +107,7 @@ const UserList = () => {
                                     )}
                                 </td>
                                 <td>
-                                    <div className='view-icon'>
+                                    <div className='view-icon' onClick={() => viewDetails(item?.id as string)}>
                                         <FcViewDetails size={24} />
                                     </div>
                                 </td>
@@ -146,6 +164,21 @@ const UserList = () => {
                     />
                 </Suspense>
             )}
+
+            {
+                userDetailModal && (
+                    <Suspense>
+                        <Modal open={userDetailModal}
+                            onClose={closeUserDetailModal}
+                        >
+                            <div>
+                                <h3 className='custom-h'>User Details</h3>
+
+                            </div>
+                        </Modal>
+                    </Suspense >
+                )
+            }
         </>
     );
 };

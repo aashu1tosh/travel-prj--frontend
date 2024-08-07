@@ -45,7 +45,7 @@ const useAPI = <T>() => {
             {
                 toastShow &&
                     toast.show({
-                        title: 'Operation Successful',
+                        title: 'Operation Failure',
                         content: error?.response?.data?.message as string,
                         duration: 5000,
                         type: 'error',

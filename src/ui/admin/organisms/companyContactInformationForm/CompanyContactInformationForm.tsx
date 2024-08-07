@@ -45,7 +45,7 @@ const CompanyContactInformationForm = () => {
             <div className='main-form'>
                 {officeSetup &&
                     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                    Object.entries(officeSetup.contactInformation).map(
+                    Object.entries(officeSetup?.contactInformation).map(
                         // eslint-disable-next-line @typescript-eslint/no-unused-vars
                         ([key, _value]) => {
                             const readOnly = readOnlyKeys.includes(key);

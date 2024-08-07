@@ -49,3 +49,13 @@ export interface IFetchUserResponse {
     data: IFetchUser[];
     pagination: PaginationInterface;
 }
+
+export interface IDetails extends IBase {
+    firstName: string,
+    middleName: string,
+    lastName: string,
+    phoneNumber: string
+}
+export interface IFetchUserDetail extends IFetchUser {
+    details: IDetails
+}

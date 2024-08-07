@@ -1,4 +1,5 @@
 import { EmailSchema } from '@config/schema/common/email.schema';
+import { image } from '@constant/image';
 import { yupResolver } from '@hookform/resolvers/yup';
 import FacebookIcon from '@ui/common/atoms/FacebookIcon';
 import InstagramIcon from '@ui/common/atoms/InstagramIcon';
@@ -35,7 +36,7 @@ const Footer = () => {
         <footer className='container footer'>
             <div id='footer-1'>
                 <img
-                    src={officeSetup?.company?.media?.path}
+                    src={officeSetup?.company?.media?.path || image?.logo}
                     alt=''
                     className='logo'
                 />
