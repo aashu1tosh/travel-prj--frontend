@@ -7,6 +7,7 @@ import {
     PaginationInterface,
     defaultPagination,
 } from '@interface/global.interface';
+import Tooltip from '@ui/common/atoms/toolTip/ToolTip';
 import Pagination from '@ui/common/molecules/pagination/Pagination';
 import Table from '@ui/common/organisms/table/Table';
 import { useEffect, useState } from 'react';
@@ -34,7 +35,10 @@ const AdminContactForm = () => {
         const response = await get({
             url: `/admin/contact-form?page=${totalPages?.currentPage || 1}&perpage=${totalPages?.perpage}`,
         });
-        if (response.status) setContactForms(response?.data?.data);
+        if (response.status) {
+            setContactForms(response?.data?.data);
+            setTotalPages(response?.data?.pagination as PaginationInterface);
+        }
     };
 
     useEffect(() => {
@@ -54,9 +58,41 @@ const AdminContactForm = () => {
                         <td>{item.email}</td>
                         <td>{item.phoneNumber}</td>
                         <td>{item.subject}</td>
-                        <td>{item.message ?? 'n/a'}</td>
                         <td>
-                            <span className='delete-icon'>Delete</span>
+                            {item.message ? (
+                                item.message?.length > 90 ? (
+                                    <Tooltip text={item?.message}>
+                                        <p>
+                                            {item.message
+                                                .toString()
+                                                .substring(0, 90) + '...'}
+                                        </p>
+                                    </Tooltip>
+                                ) : (
+                                    item.message.toString()
+                                )
+                            ) : (
+                                'n/a'
+                            )}
+                        </td>
+                        <td>
+                            <span className='delete-icon'>
+                                <svg
+                                    xmlns='http://www.w3.org/2000/svg'
+                                    width='24'
+                                    height='24'
+                                    viewBox='0 0 24 24'
+                                    fill='none'
+                                    stroke='currentColor'
+                                    strokeWidth='2'
+                                    strokeLinecap='round'
+                                    strokeLinejoin='round'
+                                >
+                                    <path d='M3 6h18' />
+                                    <path d='M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6' />
+                                    <path d='M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2' />
+                                </svg>
+                            </span>
                         </td>
                     </>
                 )}
