@@ -1,72 +1,65 @@
-// src/components/LineChart.tsx
-import React from 'react';
-import { Line } from 'react-chartjs-2';
-import {
-    Chart as ChartJS,
-    LineElement,
-    CategoryScale,
-    LinearScale,
-    Title,
-    Tooltip,
-    Legend,
-} from 'chart.js';
-
-ChartJS.register(
-    LineElement,
-    CategoryScale,
-    LinearScale,
-    Title,
-    Tooltip,
-    Legend
-);
+import Chart from 'chart.js/auto';
+import React, { useEffect, useRef } from 'react';
 
 const LineChart: React.FC = () => {
-    const data = {
-        labels: [
-            'January',
-            'February',
-            'March',
-            'April',
-            'May',
-            'June',
-            'July',
-        ],
-        datasets: [
-            {
-                label: 'Monthly Sales',
-                data: [30, 20, 50, 40, 60, 70, 90],
-                fill: false,
-                borderColor: 'rgba(75, 192, 192, 1)',
-                tension: 0.1,
-            },
-        ],
-    };
+    const canvasRef = useRef<HTMLCanvasElement>(null);
 
-    const options = {
-        responsive: true,
-        plugins: {
-            legend: {
-                position: 'top' as const,
-            },
-            tooltip: {
-                callbacks: {
-                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                    label: function (context: any) {
-                        let label = context.dataset.label || '';
-                        if (label) {
-                            label += ': ';
-                        }
-                        if (context.parsed.y !== null) {
-                            label += context.parsed.y;
-                        }
-                        return label;
+    useEffect(() => {
+        if (canvasRef.current) {
+            const ctx = canvasRef.current.getContext('2d');
+            if (ctx) {
+                const myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: [
+                            'January',
+                            'February',
+                            'March',
+                            'April',
+                            'May',
+                            'June',
+                            'July',
+                            'August',
+                            'September',
+                            'October',
+                            'November',
+                            'December',
+                        ],
+                        datasets: [
+                            {
+                                label: 'Users Growth',
+                                data: [
+                                    30, 20, 50, 40, 60, 70, 80, 120, 350, 600,
+                                    1200, 1800,
+                                ],
+                                fill: false,
+                                borderColor: '#62a944',
+                                tension: 0.1,
+                            },
+                        ],
                     },
-                },
-            },
-        },
-    };
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            title: {
+                                display: true,
+                                text: 'Users over time',
+                            },
+                        },
+                    },
+                });
 
-    return <Line data={data} options={options} />;
+                return () => {
+                    myChart.destroy();
+                };
+            }
+        }
+    }, []);
+
+    return <canvas ref={canvasRef} />;
 };
 
 export default LineChart;
