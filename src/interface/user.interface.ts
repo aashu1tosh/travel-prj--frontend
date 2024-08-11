@@ -51,11 +51,11 @@ export interface IFetchUserResponse {
 }
 
 export interface IDetails extends IBase {
-    firstName: string,
-    middleName: string,
-    lastName: string,
-    phoneNumber: string
+    firstName: string;
+    middleName: string;
+    lastName: string;
+    phoneNumber: string;
 }
 export interface IFetchUserDetail extends IFetchUser {
-    details: IDetails
+    details: IDetails;
 }
