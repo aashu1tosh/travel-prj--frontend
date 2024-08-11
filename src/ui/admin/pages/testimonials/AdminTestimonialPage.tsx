@@ -63,7 +63,10 @@ const AdminTestimonialPage = () => {
         const response = await get({
             url: `/testimonial?page=${totalPages?.currentPage || 1}&perpage=${totalPages?.perpage}`,
         });
-        if (response.status) setTestimonials(response?.data?.data);
+        if (response.status) {
+            setTestimonials(response?.data?.data);
+            setTotalPages(response?.data?.total as PaginationInterface);
+        }
     };
 
     const onDelete = async () => {
@@ -84,7 +87,9 @@ const AdminTestimonialPage = () => {
     return (
         <>
             <div className='admin-testimonial-page'>
-                <div className='parent-container'>
+                <div className='flex-space-between'>
+                    <h1 className='custom-h'>Testimonials</h1>
+
                     <div
                         className='button-wrapper'
                         onClick={addTestimonialModalFxn}
@@ -92,7 +97,6 @@ const AdminTestimonialPage = () => {
                         <Button name='Add Testimonials'></Button>
                     </div>
                 </div>
-                <h1 className='custom-h'>Testimonials</h1>
                 <Table
                     headers={headers}
                     data={testimonials as ITestimonial[]}
@@ -104,14 +108,34 @@ const AdminTestimonialPage = () => {
                             <td>{item.reviewerLocation}</td>
                             <td>{item.testimonial}</td>
                             <td>
-                                <img src={item.media?.path} alt='' />
+                                <img
+                                    src={item.media?.path}
+                                    alt=''
+                                    className='table-profile'
+                                />
                             </td>
                             <td
                                 onClick={() =>
                                     confirmDelete(item?.id as string)
                                 }
                             >
-                                <span className='delete-icon'>Delete</span>
+                                <span className='delete-icon'>
+                                    <svg
+                                        xmlns='http://www.w3.org/2000/svg'
+                                        width='24'
+                                        height='24'
+                                        viewBox='0 0 24 24'
+                                        fill='none'
+                                        stroke='currentColor'
+                                        strokeWidth='2'
+                                        strokeLinecap='round'
+                                        strokeLinejoin='round'
+                                    >
+                                        <path d='M3 6h18' />
+                                        <path d='M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6' />
+                                        <path d='M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2' />
+                                    </svg>
+                                </span>
                             </td>
                         </>
                     )}
@@ -128,7 +152,7 @@ const AdminTestimonialPage = () => {
                         setRefresh={setRefresh}
                     />
                 ) : (
-                    <></>
+                    <>{totalPages?.totalPages}</>
                 )}
             </div>
 

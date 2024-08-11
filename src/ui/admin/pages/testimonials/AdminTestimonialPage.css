@@ -1,13 +1,13 @@
-.admin-testimonial-page .parent-container {
-    position: relative;
-    width: 100%;
-    /* border: 2px solid black; */
-    height: 50px;
+.admin-testimonial-page .button-wrapper {
+    width: 140px;
+    right: 10px;
+    top: -5px;
 }
 
 .admin-testimonial-page .button-wrapper {
     width: 140px;
-    position: absolute;
+    margin: 0px 10px;
+    /* position: absolute;
     right: 10px;
-    top: -5px;
+    top: -5px; */
 }

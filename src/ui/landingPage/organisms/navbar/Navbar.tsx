@@ -71,7 +71,10 @@ const Navbar = () => {
                 <a href='/'>
                     <img
                         alt=''
-                        src={`${officeSetup?.company?.media?.path}` || image?.logo}
+                        src={
+                            `${officeSetup?.company?.media?.path}` ||
+                            image?.logo
+                        }
                         className='logo'
                     />
                 </a>

@@ -69,13 +69,14 @@ const TeamMembersList = () => {
     return (
         <>
             <div className='admin-team-members'>
-                <div className='parent-container'>
+                <div className='flex-space-between'>
+                    <h1 className='custom-h'>Team Member List</h1>
+
                     <div className='button-wrapper' onClick={addTeamModalFxn}>
                         <Button name='Add Team Members'></Button>
                     </div>
                 </div>
 
-                <h1 className='custom-h'>Team Member List</h1>
                 <Table
                     headers={headers}
                     data={teamMembers as ITeamMember[]}
@@ -89,14 +90,34 @@ const TeamMembersList = () => {
                             <td>{item.phoneNumber ?? 'n/a'}</td>
                             <td>{item.position}</td>
                             <td>
-                                <img src={item.media?.path} alt='' />
+                                <img
+                                    src={item.media?.path}
+                                    alt=''
+                                    className='table-profile'
+                                />
                             </td>
                             <td
                                 onClick={() =>
                                     confirmDelete(item?.id as string)
                                 }
                             >
-                                <span className='delete-icon'>Delete</span>
+                                <span className='delete-icon'>
+                                    <svg
+                                        xmlns='http://www.w3.org/2000/svg'
+                                        width='24'
+                                        height='24'
+                                        viewBox='0 0 24 24'
+                                        fill='none'
+                                        stroke='currentColor'
+                                        strokeWidth='2'
+                                        strokeLinecap='round'
+                                        strokeLinejoin='round'
+                                    >
+                                        <path d='M3 6h18' />
+                                        <path d='M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6' />
+                                        <path d='M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2' />
+                                    </svg>
+                                </span>
                             </td>
                         </>
                     )}

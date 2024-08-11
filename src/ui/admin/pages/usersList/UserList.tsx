@@ -3,7 +3,11 @@ import {
     PaginationInterface,
     defaultPagination,
 } from '@interface/global.interface';
-import { IFetchUser, IFetchUserDetail, IFetchUserResponse } from '@interface/user.interface';
+import {
+    IFetchUser,
+    IFetchUserDetail,
+    IFetchUserResponse,
+} from '@interface/user.interface';
 import Pagination from '@ui/common/molecules/pagination/Pagination';
 import Modal from '@ui/common/organisms/modal/Modal';
 import { Suspense, lazy, useEffect, useState } from 'react';
@@ -26,7 +30,9 @@ const UserList = () => {
     const [id, setId] = useState<string>('');
     const [refresh, setRefresh] = useState<boolean>(false);
     const [userDetailModal, setUserDetailModal] = useState<boolean>();
-    const [userDetails, setUserDetails] = useState<IFetchUserDetail | null>(null);
+    const [userDetails, setUserDetails] = useState<IFetchUserDetail | null>(
+        null
+    );
 
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
@@ -34,11 +40,10 @@ const UserList = () => {
     const openUserDetailModal = () => setUserDetailModal(true);
     const closeUserDetailModal = () => setUserDetailModal(false);
 
-
     const fetchData = async () => {
         const response = await get({
             url: `/admin/users?page=${totalPages?.currentPage || 1}&perpage=${totalPages?.perpage}`,
-            toastShow: true,
+            toastShow: false,
         });
         if (response.status) {
             setFetchedData(response?.data?.data);
@@ -47,15 +52,18 @@ const UserList = () => {
     };
 
     const viewDetails = async (id: string) => {
-        console.log("data");
+        console.log('data');
         console.log(id);
-        const response = await get({ url: `/admin/user/${id}` });
+        const response = await get({
+            url: `/admin/user/${id}`,
+            toastShow: true,
+        });
         if (response.status) {
-            const data = response.data as unknown as IFetchUserDetail
-            setUserDetails(data)
+            const data = response.data as unknown as IFetchUserDetail;
+            setUserDetails(data);
         }
         openUserDetailModal();
-    }
+    };
 
     const confirmDelete = (id: string) => {
         setId(id);
@@ -96,7 +104,9 @@ const UserList = () => {
                         (fetchedData || [])?.map((item, index) => (
                             <tr key={index}>
                                 <td>{index + 1}</td>
-                                <td>{item?.createdAt as unknown as string}</td>
+                                <td>
+                                    {item?.createdAt?.toString().split('T')[0]}
+                                </td>
                                 <td>{item?.email}</td>
                                 <td>{item?.role}</td>
                                 <td>
@@ -107,7 +117,12 @@ const UserList = () => {
                                     )}
                                 </td>
                                 <td>
-                                    <div className='view-icon' onClick={() => viewDetails(item?.id as string)}>
+                                    <div
+                                        className='view-icon'
+                                        onClick={() =>
+                                            viewDetails(item?.id as string)
+                                        }
+                                    >
                                         <FcViewDetails size={24} />
                                     </div>
                                 </td>
@@ -165,20 +180,19 @@ const UserList = () => {
                 </Suspense>
             )}
 
-            {
-                userDetailModal && (
-                    <Suspense>
-                        <Modal open={userDetailModal}
-                            onClose={closeUserDetailModal}
-                        >
-                            <div>
-                                <h3 className='custom-h'>User Details</h3>
-
-                            </div>
-                        </Modal>
-                    </Suspense >
-                )
-            }
+            {userDetailModal && (
+                <Suspense>
+                    <Modal
+                        open={userDetailModal}
+                        onClose={closeUserDetailModal}
+                    >
+                        <div>
+                            <h3 className='custom-h'>User Details</h3>
+                            {userDetails?.details?.firstName}
+                        </div>
+                    </Modal>
+                </Suspense>
+            )}
         </>
     );
 };

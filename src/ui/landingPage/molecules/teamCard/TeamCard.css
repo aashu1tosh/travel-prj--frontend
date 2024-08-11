@@ -20,6 +20,7 @@
     max-width: 300px;
     max-height: 300px;
     overflow-x: hidden;
+    aspect-ratio: 1;
 }
 
 .flip-card:hover .flip-card-inner {
