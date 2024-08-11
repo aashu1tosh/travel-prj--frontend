@@ -42,7 +42,7 @@
 
 .custom-h {
     max-width: max-content;
-    border-bottom: 2px solid var(--admin-primary-color);
+    border-bottom: 2px solid var(--site-color);
     margin-bottom: 1.5rem;
 }
 
@@ -50,6 +50,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.table-profile {
+    width: 25px;
+    height: 25px;
+    clip-path: circle();
 }
 
 @media (max-width: 1200px) {
