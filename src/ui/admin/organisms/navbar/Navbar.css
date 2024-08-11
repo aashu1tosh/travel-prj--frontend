@@ -7,9 +7,9 @@
     padding: 10px 20px;
     position: fixed;
     /* width: calc(100% - 220px); */
-    width: 88%;
+    width: 85vw;
     margin: 5px;
-    margin-left: 220px;
+    margin-left: 270px;
     border-radius: 10px;
     z-index: 2;
 }

@@ -75,7 +75,10 @@ const Sidebar: React.FC = () => {
     return (
         <>
             <div id='unique-sidebar' className={'sidebar open'}>
+                <h1 className='custom-h admin'>Admin</h1>
+
                 <div className='sidebar-content'>
+                    {/* <hr /> */}
                     {routes.map((val, idx) => (
                         <Link to={`${val.path}`} key={idx}>
                             <li key={idx}>

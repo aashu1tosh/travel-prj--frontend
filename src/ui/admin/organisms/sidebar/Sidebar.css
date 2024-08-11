@@ -3,7 +3,7 @@
     left: 0;
     top: 0;
     height: 99%;
-    width: 200px;
+    width: 250px;
     background-color: #333;
     color: white;
     overflow-x: hidden;
@@ -12,6 +12,13 @@
     z-index: 2;
     margin: 5px;
     border-radius: 10px;
+}
+
+#unique-sidebar .admin {
+    margin-top: 12px;
+    margin-left: 45px;
+    width: 100%;
+    text-align: center;
 }
 
 #unique-sidebar.open {
