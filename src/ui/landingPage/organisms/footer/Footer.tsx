@@ -1,5 +1,6 @@
 import { EmailSchema } from '@config/schema/common/email.schema';
 import { image } from '@constant/image';
+import { popularDestination } from '@data/populatDestinationList';
 import { yupResolver } from '@hookform/resolvers/yup';
 import FacebookIcon from '@ui/common/atoms/FacebookIcon';
 import InstagramIcon from '@ui/common/atoms/InstagramIcon';
@@ -27,7 +28,7 @@ const Footer = () => {
         resolver: yupResolver(EmailSchema()),
     });
 
-    const submitNewLetter: SubmitHandler<IEmail> = (data) => {
+    const submitNewLetter: SubmitHandler<IEmail> = (data: unknown) => {
         console.log(data);
         reset();
     };
@@ -45,16 +46,12 @@ const Footer = () => {
             <div id='footer-2'>
                 <h3>POPULAR DESTINATION</h3>
                 <ul>
-                    <li>Kathmandu Valley</li>
-                    <li>Pokhara Valley</li>
-                    <li>Sindhupalchok Melamchi</li>
-                    <li>Kavrepalanchok</li>
-                    <li>Annapurna Base Camp</li>
-                    <li>Lumbimi</li>
-                    <li>Everest Base Camp</li>
-                    <li>Manag Valley</li>
-                    <li>Mustang Valley</li>
-                    <li>Kapuche Glacier</li>
+                    {popularDestination?.map((val, idx) => (
+                        <li key={idx}>
+                            <img src={val?.imageSrc} alt={val?.text} />
+                            <p>{val?.text}</p>
+                        </li>
+                    ))}
                 </ul>
             </div>
             <div id='footer-3'>

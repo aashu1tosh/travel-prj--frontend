@@ -131,7 +131,7 @@ import React, {
 
 interface DragAndDropProps {
     media?: string | null;
-    setMedia: Dispatch<SetStateAction<string>>;
+    setMedia: Dispatch<SetStateAction<string | null>>;
 }
 
 const DragAndDrop: React.FC<DragAndDropProps> = ({ setMedia }) => {

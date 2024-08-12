@@ -52,8 +52,6 @@ const UserList = () => {
     };
 
     const viewDetails = async (id: string) => {
-        console.log('data');
-        console.log(id);
         const response = await get({
             url: `/admin/user/${id}`,
             toastShow: true,

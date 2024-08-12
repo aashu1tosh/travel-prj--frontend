@@ -4,6 +4,7 @@ import useAPI from '@hooks/useAPI';
 import { useOfficeSetup } from '@hooks/useOfficeSetup';
 import { ICompanyInfo } from '@interface/company.interface';
 import Button from '@ui/common/atoms/button/Button';
+import MapComponent from '@ui/common/atoms/mapComponent/MapComponent';
 import LabeledInput from '@ui/common/molecules/labeledInput/LabeledInput';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
@@ -26,6 +27,10 @@ const CompanyContactInformationForm = () => {
     const companyInfoUpdate = async (data: ICompanyInfo) => {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const { createdAt, ...payload } = data;
+        payload.lat = officeSetup?.contactInformation?.lat as string;
+        payload.long = officeSetup?.contactInformation?.long as string;
+        console.log('🚀 ~ companyInfoUpdate ~ payload:', payload);
+
         const response = await patch({
             url: '/admin/contact-information',
             data: payload,
@@ -39,6 +44,7 @@ const CompanyContactInformationForm = () => {
     };
 
     const readOnlyKeys = ['id', 'createdAt', 'logoUrl', 'media'];
+    const skipKeys = ['id', 'createdAt', 'lat', 'long'];
 
     return (
         <form onSubmit={handleSubmit(companyInfoUpdate)}>
@@ -49,6 +55,7 @@ const CompanyContactInformationForm = () => {
                         // eslint-disable-next-line @typescript-eslint/no-unused-vars
                         ([key, _value]) => {
                             const readOnly = readOnlyKeys.includes(key);
+                            if (skipKeys.includes(key)) return null;
                             return (
                                 <div
                                     className='label-input-wrapper'
@@ -68,6 +75,7 @@ const CompanyContactInformationForm = () => {
                         }
                     )}
             </div>
+            <MapComponent></MapComponent>
             <div className='button-wrapper'>
                 <Button name={'Submit'} disabled={isSubmitting} />
             </div>
