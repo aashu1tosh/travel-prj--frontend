@@ -1,4 +1,5 @@
 import { TestimonialSchema } from '@config/schema/admin/testimonial.schema';
+import { MediaType } from '@constant/enum';
 import { yupResolver } from '@hookform/resolvers/yup';
 import useAPI from '@hooks/useAPI';
 import { IMedia } from '@interface/media.interface';
@@ -95,7 +96,7 @@ const AddTestimonial: React.FC<AddTestimonialProps> = ({ setTestimonials }) => {
                     />
                 </div>
 
-                <DragAndDrop setMedia={setMedia}></DragAndDrop>
+                <DragAndDrop setMedia={setMedia} type={MediaType?.PROFILE}></DragAndDrop>
                 <Button type='submit' name={'Submit'} disabled={isSubmitting} />
             </form>
         </div>

@@ -124,7 +124,6 @@ const TeamMembersList = () => {
                 />
             </div>
 
-            {/* <DragAndDrop></DragAndDrop> */}
 
             {isDeleteModalOpen && (
                 <Suspense fallback={<div>Loading...</div>}>

@@ -121,6 +121,7 @@
 // export default DragAndDrop;
 
 import axios from '@api/axios';
+import { MediaType } from '@constant/enum';
 import React, {
     ChangeEvent,
     Dispatch,
@@ -130,11 +131,11 @@ import React, {
 } from 'react';
 
 interface DragAndDropProps {
-    media?: string | null;
-    setMedia: Dispatch<SetStateAction<string | null>>;
+    setMedia: Dispatch<SetStateAction<string>>;
+    type: MediaType
 }
 
-const DragAndDrop: React.FC<DragAndDropProps> = ({ setMedia }) => {
+const DragAndDrop: React.FC<DragAndDropProps> = ({ setMedia, type }) => {
     const [files, setFiles] = useState<File[]>([]);
     const [dragging, setDragging] = useState<boolean>(false);
     const [status, setStatus] = useState<string | null>(null);
@@ -175,7 +176,7 @@ const DragAndDrop: React.FC<DragAndDropProps> = ({ setMedia }) => {
 
     const handleUpload = async (filesToUpload: File[]) => {
         const formData = new FormData();
-        formData.append('type', 'PROFILE');
+        formData.append('type', type);
         filesToUpload.forEach((f) => {
             formData.append('file', f);
         });

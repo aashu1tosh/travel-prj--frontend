@@ -1,3 +1,4 @@
+import { MediaType } from '@constant/enum';
 import { pageMapLabel } from '@data/map';
 import useAPI from '@hooks/useAPI';
 import {
@@ -120,7 +121,7 @@ const SitePages = () => {
                         placeholder='Enter a slogan'
                         register={register}
                     />
-                    <DragAndDrop setMedia={setMedia} />
+                    <DragAndDrop setMedia={setMedia} type={MediaType?.BACKGROUND} />
                     <Button
                         type='submit'
                         name={'Submit'}

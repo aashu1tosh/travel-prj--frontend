@@ -1,4 +1,5 @@
 import { TeamMemberSchema } from '@config/schema/admin/teamMember.schema';
+import { MediaType } from '@constant/enum';
 import { yupResolver } from '@hookform/resolvers/yup';
 import useAPI from '@hooks/useAPI';
 import {
@@ -112,7 +113,7 @@ const AddTeamMember: React.FC<AddTeamMembersProps> = ({ setTeamMembers }) => {
                     />
                 </div>
 
-                <DragAndDrop setMedia={setMedia}></DragAndDrop>
+                <DragAndDrop setMedia={setMedia} type={MediaType?.PROFILE} />
                 <Button type='submit' name={'Submit'} disabled={isSubmitting} />
             </form>
         </div>

@@ -1,3 +1,4 @@
+import { MediaType } from '@constant/enum';
 import { officeSetupData } from '@context/OfficeSetupProvider';
 import { companyInformationLabel } from '@data/map';
 import useAPI from '@hooks/useAPI';
@@ -20,7 +21,7 @@ const CompanyInformationForm = () => {
         reset,
     } = useForm<ICompany>();
 
-    const [mediaId, setMediaId] = useState<string | null>(null);
+    const [mediaId, setMediaId] = useState<string>('');
 
     useEffect(() => {
         reset(officeSetup?.company);
@@ -78,7 +79,7 @@ const CompanyInformationForm = () => {
                 }
             </div>
             <p>If you want to upload a new logo</p>
-            <DragAndDrop setMedia={setMediaId} />
+            <DragAndDrop setMedia={setMediaId} type={MediaType?.LOGO} />
             <div className='button-wrapper'>
                 <Button name={'Submit'} disabled={isSubmitting} />
             </div>
