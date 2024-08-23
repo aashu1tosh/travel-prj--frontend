@@ -41,7 +41,7 @@ const Footer = () => {
                     alt=''
                     className='logo'
                 />
-                <p>{officeSetup?.company?.description}</p>
+                <p>{officeSetup?.company?.description || "Travel website for the convince of all people"}</p>
             </div>
             <div id='footer-2'>
                 <h3>POPULAR DESTINATION</h3>

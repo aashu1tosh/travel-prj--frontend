@@ -58,7 +58,10 @@ const SitePages = () => {
                 setHeroData(response.data);
                 reset({
                     slogan: response?.data?.slogan,
-                });
+                })
+            } else {
+                setHeroData(null);
+                reset({ slogan: "" })
             }
         } catch (error) {
             console.error(error);

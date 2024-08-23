@@ -17,7 +17,10 @@ const Testimonials = () => {
         const response = await get({
             url: `/testimonial?page=${1}&perpage=${1}`,
         });
-        if (response.status) setTestimonial(response?.data?.data);
+        if (response.status) {
+            setTestimonial(response?.data?.data);
+            console.log(response?.data?.data)
+        }
     };
 
     useEffect(() => {
@@ -38,18 +41,18 @@ const Testimonials = () => {
                 </div>
 
                 <div className='right'>
-                    {testimonial ? (
+                    {testimonial && testimonial.length != 0 ? (
                         <div>
                             <p className='main-testimonial'>
-                                {testimonial[0].testimonial}
+                                {testimonial[0]?.testimonial}
                             </p>
-                            <RatingStars rating={testimonial[0].rating} />
-                            <p>{testimonial[0].fullName}</p>
-                            <p>{testimonial[0].reviewerLocation}</p>
+                            <RatingStars rating={testimonial[0]?.rating} />
+                            <p>{testimonial[0]?.fullName}</p>
+                            <p>{testimonial[0]?.reviewerLocation}</p>
                             <div className='border-wrapper'>
-                                {testimonial[0].media ? (
+                                {testimonial[0]?.media ? (
                                     <img
-                                        src={testimonial[0].media.path}
+                                        src={testimonial[0]?.media?.path}
                                         className='profile'
                                     />
                                 ) : (

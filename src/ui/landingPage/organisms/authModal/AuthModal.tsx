@@ -1,5 +1,6 @@
 import { LoginSchema } from '@config/schema/common/auth.schema';
 // import EncryptDecrypt from '@functions/encryptDecrypt';
+import { image } from '@constant/image';
 import encryptDecrypt from '@functions/encryptDecrypt';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { IUser } from '@interface/user.interface';
@@ -58,7 +59,7 @@ const AuthModal = (props: AuthModalProps) => {
                 <h1>Welcome</h1>
 
                 <div className='logo-wrapper'>
-                    <img src={officeSetup?.company?.media?.path} alt='' />
+                    <img src={officeSetup?.company?.media?.path || image?.logo} alt='' />
                 </div>
                 <p className='site-color'>{officeSetup?.company?.slogan}</p>
 
